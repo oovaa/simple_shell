@@ -58,6 +58,10 @@ char *_getenv(char *name);
 int ma_exit(char **args);
 int ma_cd(char **args);
 
+/* handelcom */
+char **strtoarr(char *str, char del);
+
+
 
 
 #endif

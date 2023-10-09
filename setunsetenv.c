@@ -55,7 +55,7 @@ return (0);
 
 int _unsetenv(char *name)
 {
-	int i, j, last = 0;
+	int i, last = 0;
 	char *tmp;
 
 	while (environ[last + 1])
@@ -71,6 +71,7 @@ int _unsetenv(char *name)
 			return (0);
 		}
 	}
+	(void)tmp;
 	return (1);
 }
 /**
@@ -82,8 +83,9 @@ char *gpath()
 {
 	char *path = NULL;
 	int len = _strlen("PATH");
+	int i;
 
-	for (int i = 0; environ[i]; i++)
+	for (i = 0; environ[i]; i++)
 	{
 		if (_strncmp(environ[i], "PATH", len) == 0)
 		{
@@ -101,10 +103,11 @@ char *gpath()
 
 char *_getenv(char *name)
 {
+	int i;
 	char *val = NULL;
 	int len = _strlen(name);
 
-	for (int i = 0; environ[i]; i++)
+	for (i = 0; environ[i]; i++)
 	{
 
 		if (_strncmp(name, environ[i], len) == 0 && environ[i][len] == '=')
