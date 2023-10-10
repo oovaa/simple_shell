@@ -34,6 +34,7 @@ int countchinstr(char *str, char ch);
 /* output */
 int _putchar(char c);
 void _puts(char *str);
+int getIdx(char *str, char c);
 
 
 

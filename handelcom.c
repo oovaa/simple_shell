@@ -9,60 +9,33 @@
 
 char **strtoarr(char *str, char del)
 {
-  int i = 0, j = 0;
-  char **arr;
-  int count;
-  int singlestrlen = 0;
+  int i = 0;
+  char **arr, *tok = NULL;
+  int count, singlestrlen = 0;
 
 
   /* str[_strcspn(str, '\n')] = '\0'; */
   count = countchinstr(str, del) + 1;
+  arr = malloc(sizeof(char *) * (count + 1));
 
-  arr = malloc(sizeof(char *) * count);
+  for (i = 0; singlestrlen != -1 ; i++)
+  {
+     singlestrlen = getIdx(str, ' ');
+     if (singlestrlen != -1)
+     {
+       tok = malloc(sizeof(char) * (singlestrlen + 1));
+       _strncpy(tok, str, singlestrlen);
+       str += singlestrlen + 1;
+     }
+     else
+       tok = _strdup(str);
 
-  if (arr == NULL) {
-    perror("the array is not allocated");
-    return (NULL);
+       arr[i] = tok;
+
   }
-
-  arr[i] = malloc(sizeof(char) * singlestrlen);
-
-
-     printf("%d\n", count);
-	singlestrlen = _strcspn(arr[j], ' ');
-
-
-  for (i = 0; str[i]; i++) {
-
-    if (arr[j] == NULL) {
-      perror("the string is not allocated");
-      return (NULL);
-    }
-
-    if (str[i] == del) {
-      ++j;
-      ++i;
-      arr[j] = malloc(sizeof(char) * 100);
-    }
-
-    _strncat(arr[j], &str[i], 1);
-  }
-
-  for (i = 0; arr[i]; i++) {
-    printf("%s\n", arr[i]);
-    free(arr[i]);
-  }
-  
-  printf("%d\n", j);
+      arr[i + 1] = NULL;
 
   return (arr);
-}
-
-int main(void)
-{
-    char **arr = strtoarr("omar tata nana", ' ');
-    (void)arr;
-    return 0;
 }
 
 
