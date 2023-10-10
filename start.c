@@ -6,7 +6,7 @@
  *
 */
 
-int main(void)
+/* int main(void)
 {
 	char *comand = NULL;
 	char **tokcom = NULL;
@@ -14,11 +14,15 @@ int main(void)
 
 	_puts("$ ");
 	getline(&comand, &line, stdin);
+	comand[_strcspn(comand, '\n')] = '\0';
+
 	tokcom = strtoarr(comand, ' ');
-	tokcom[0][_strcspn(tokcom[0], '\n')] = '\0';
-	comand = look_in_path(tokcom[0]); /* pass */
-	
+
+	printf("%s\n", tokcom[0]);
+	comand = look_in_path(tokcom[0]); 
+
 
 
 	return (0);
 }
+ */

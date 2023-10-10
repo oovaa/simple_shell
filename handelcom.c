@@ -9,54 +9,62 @@
 
 char **strtoarr(char *str, char del)
 {
-char **arr;
-int itmes = 0, i, j, k;
+  int i = 0, j = 0;
+  char **arr;
+  int count;
+  int singlestrlen = 0;
 
-	for (i = 0; str[i]; i++)
-	{
-		if (str[i] == del)
-			itmes++;
-	}
 
-	if (itmes == 0)
-		{
-			arr = malloc(sizeof (char *) );
-			arr[0] = str;
-			return (arr);
-		}
-		
+  /* str[_strcspn(str, '\n')] = '\0'; */
+  count = countchinstr(str, del) + 1;
 
-if (str == NULL)
-	return (NULL);
+  arr = malloc(sizeof(char *) * count);
 
-arr = malloc(sizeof(char *) * (itmes + 2));
-if (arr == NULL)
-	return (NULL);
+  if (arr == NULL) {
+    perror("the array is not allocated");
+    return (NULL);
+  }
 
-i = 0;
-j = 0;
-for (k = 0; str[k]; k++)
+  arr[i] = malloc(sizeof(char) * singlestrlen);
+
+
+     printf("%d\n", count);
+	singlestrlen = _strcspn(arr[j], ' ');
+
+
+  for (i = 0; str[i]; i++) {
+
+    if (arr[j] == NULL) {
+      perror("the string is not allocated");
+      return (NULL);
+    }
+
+    if (str[i] == del) {
+      ++j;
+      ++i;
+      arr[j] = malloc(sizeof(char) * 100);
+    }
+
+    _strncat(arr[j], &str[i], 1);
+  }
+
+  for (i = 0; arr[i]; i++) {
+    printf("%s\n", arr[i]);
+    free(arr[i]);
+  }
+  
+  printf("%d\n", j);
+
+  return (arr);
+}
+
+int main(void)
 {
-	if (str[k] == del)
-	{
-		arr[i] = malloc(sizeof(char) * (k - j + 1));
-		if (arr[i] == NULL)
-		{
-			for (k = 0; k < i; k++)
-				free(arr[k]);
-			free(arr);
-			return (NULL);
-		}
-		_strncat(arr[i], &str[j], k - j);
-		j = k + 1;
-		i++;
-	}
+    char **arr = strtoarr("omar tata nana", ' ');
+    (void)arr;
+    return 0;
 }
 
-arr[i] = NULL;
-
-return (arr);
-}
 
 
 /**
