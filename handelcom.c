@@ -16,11 +16,12 @@ char **strtoarr(char *str, char del)
 
   /* str[_strcspn(str, '\n')] = '\0'; */
   count = countchinstr(str, del) + 1;
+
   arr = malloc(sizeof(char *) * (count + 1));
 
   for (i = 0; singlestrlen != -1 ; i++)
   {
-     singlestrlen = getIdx(str, ' ');
+     singlestrlen = getIdx(str, del);
      if (singlestrlen != -1)
      {
        tok = malloc(sizeof(char) * (singlestrlen + 1));
@@ -56,11 +57,13 @@ char *look_in_path(char *str)
 	tok = strtoarr(path, ':');
 	for (i = 0; tok[i]; i++)
 	{
-		com = malloc(_strlen(tok[i]));
+		com = malloc(_strlen(tok[i]) + _strlen(str) + 2);
 		_strcpy(com, tok[i]);
 		_strcat(com, "/");
 		_strcat(com, str);
-		if (open(com, O_RDONLY) != -1)
+    com[_strlen(com)] = '\0';
+
+		if (access(com, F_OK) == 0)
 			return (com);
 	}
 
