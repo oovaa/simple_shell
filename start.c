@@ -12,9 +12,12 @@ int main(void)
 	char **tokcom = NULL;
 	size_t line = 0;
 
-	_puts("$:");
+	_puts("$ ");
 	getline(&comand, &line, stdin);
 	tokcom = strtoarr(comand, ' ');
+	tokcom[0][_strcspn(tokcom[0], '\n')] = '\0';
+	comand = look_in_path(tokcom[0]); /* pass */
+	
 
 
 	return (0);

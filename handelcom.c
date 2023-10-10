@@ -18,6 +18,14 @@ int itmes = 0, i, j, k;
 			itmes++;
 	}
 
+	if (itmes == 0)
+		{
+			arr = malloc(sizeof (char *) );
+			arr[0] = str;
+			return (arr);
+		}
+		
+
 if (str == NULL)
 	return (NULL);
 
@@ -52,28 +60,6 @@ return (arr);
 
 
 /**
- * gpath - returns the path
- * Return: path as string
- *
-*/
-
-char *gpath()
-{
-	char *path = NULL;
-	int len = _strlen("PATH");
-
-	for (int i = 0; environ[i]; i++)
-	{
-		if (_strncmp(environ[i], "PATH", len) == 0)
-		{
-			path = environ[i] + 5;
-			break;
-		}
-	}
-	return (path);
-}
-
-/**
  * look_in_path - returns the path
  * @str: command to look for
  * Return: valid path as string or null
@@ -82,8 +68,7 @@ char *gpath()
 
 char *look_in_path(char *str)
 {
-	char *path = gpath(), del = ':', **tok, *com;
-	size_t token_len, com_len;
+	char *path = gpath(), **tok, *com;
 	int i;
 
 
@@ -100,3 +85,4 @@ char *look_in_path(char *str)
 
 	return (NULL);
 }
+

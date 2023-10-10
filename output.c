@@ -46,3 +46,22 @@ void print_array(int *a, int n)
 	}
 	_putchar('\n');
 }
+
+/**
+ * _strcspn - function that gets the last index of acceptet char
+ * @str: string to process
+ * @regect: regected char
+ * Return: last index of acceptet char
+*/
+
+int _strcspn(char *str, char regect)
+{
+	int i;
+
+	i = 0;
+
+	while (str[i] != regect)
+		i++;
+
+	return (i);
+}

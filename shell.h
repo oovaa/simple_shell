@@ -30,6 +30,8 @@ char *_strstr(char *haystack, char *needle);
 int _putchar(char c);
 void _puts(char *str);
 void print_array(int *a, int n);
+int _strcspn(char *str, char regect);
+
 
 
 
@@ -61,7 +63,7 @@ int ma_cd(char **args);
 
 /* handelcom */
 char **strtoarr(char *str, char del);
-char *gpath();
+char *look_in_path(char *str);
 
 
 
