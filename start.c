@@ -17,6 +17,5 @@ int main(void)
 	tokcom = strtoarr(comand, ' ');
 
 
-
 	return (0);
 }

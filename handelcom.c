@@ -49,3 +49,54 @@ arr[i] = NULL;
 
 return (arr);
 }
+
+
+/**
+ * gpath - returns the path
+ * Return: path as string
+ *
+*/
+
+char *gpath()
+{
+	char *path = NULL;
+	int len = _strlen("PATH");
+
+	for (int i = 0; environ[i]; i++)
+	{
+		if (_strncmp(environ[i], "PATH", len) == 0)
+		{
+			path = environ[i] + 5;
+			break;
+		}
+	}
+	return (path);
+}
+
+/**
+ * look_in_path - returns the path
+ * @str: command to look for
+ * Return: valid path as string or null
+ *
+*/
+
+char *look_in_path(char *str)
+{
+	char *path = gpath(), del = ':', **tok, *com;
+	size_t token_len, com_len;
+	int i;
+
+
+	tok = strtoarr(path, ':');
+	for (i = 0; tok[i]; i++)
+	{
+		com = malloc(_strlen(tok[i]));
+		_strcpy(com, tok[i]);
+		_strcat(com, "/");
+		_strcat(com, str);
+		if (open(com, O_RDONLY) != -1)
+			return (com);
+	}
+
+	return (NULL);
+}
