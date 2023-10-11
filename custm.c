@@ -10,11 +10,11 @@ int ma_exit(char **args)
 {
 	if (args[1] != NULL)
 	{
-		return (_atoi(args[1]));
+		exit (_atoi(args[1]));
 	}
 	else
 	{
-		return (0);
+		exit (0);
 	}
 }
 
