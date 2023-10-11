@@ -10,7 +10,7 @@ int ma_exit(char **args)
 {
 	if (args[1] != NULL)
 	{
-		return (atoi(args[1]));
+		return (_atoi(args[1]));
 	}
 	else
 	{
@@ -29,13 +29,13 @@ int ma_cd(char **args)
 {
 	if (args[1] == NULL)
 	{
-		perror("Argument expected to \"cd\"\n");
+		chdir("/home");
 	}
 	else
 	{
 		if (chdir(args[1]) != 0)
 		{
-			perror("Error in ma_cd.c: changing directory\n");
+			perror("./hsh: 1: cd: can't cd to asas");
 			return (-1);
 		}
 	}

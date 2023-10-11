@@ -7,27 +7,30 @@
 */
 
 
-/* int main(void)
+int main(void)
 {
 	char *comand = NULL;
 	char **tokcom = NULL;
 	size_t line = 0;
 	int i;
-
+	int re = 0;
+	
+while (1)
+{
 	_puts("$ ");
 	getline(&comand, &line, stdin);
+	append_text_to_file("hisory.txt", comand);
+
 	comand[_strcspn(comand, '\n')] = '\0';
 
 	tokcom = strtoarr(comand, ' ');
 
-
-	comand = malloc(sizeof(char) * _strlen(tokcom[0] + 1));
+	comand = _strdup(tokcom[0]);
 
 	comand = look_in_path(tokcom[0]);
 	 
-    exe(comand, tokcom);
+    re = exe(comand, tokcom);
+}
+	return (re);
+} 
 
-
-
-	return (0);
-}  */
