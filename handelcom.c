@@ -53,6 +53,9 @@ char *look_in_path(char *str)
 	char *path = gpath(), **tok, *com;
 	int i;
 
+  if (access(str, F_OK) == 0)
+  return (str);
+
 
 	tok = strtoarr(path, ':');
 	for (i = 0; tok[i]; i++)

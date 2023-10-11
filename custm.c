@@ -36,7 +36,8 @@ int ma_cd(char **args)
 		if (chdir(args[1]) != 0)
 		{
 			perror("Error in ma_cd.c: changing directory\n");
+			return (-1);
 		}
 	}
-	return (-1);
+	return (0);
 }

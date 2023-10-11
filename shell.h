@@ -69,4 +69,11 @@ char *look_in_path(char *str);
 
 
 
+typedef struct 
+{
+	char *name;
+	int (*f)(char **args);
+
+}built_ins;
+
 #endif
