@@ -1,6 +1,5 @@
 #include "shell.h"
 
-typedef int (*func)(char **args);
 
 func check_built_ins(char *ch)
 {
@@ -17,4 +16,45 @@ func check_built_ins(char *ch)
     }
 
     return (NULL);
+}
+
+
+
+
+int exebi(char **arr)
+{
+
+return (0);
+}
+
+
+
+
+
+int exe(char *com, char **arr)
+{
+    int id;
+    func f;
+
+    f = check_built_ins(arr[0]);
+    if (f != NULL)
+    exebi(arr);
+
+
+    arr[0] = com;
+
+    id = fork();
+
+    if (id == 0)
+    {
+        execve(com, arr, environ);
+        perror("exec: not excuted");
+        return (2);
+    }
+    else
+    {
+        wait(NULL);
+        return (0);
+    }    
+
 }

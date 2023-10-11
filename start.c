@@ -25,6 +25,16 @@ int main(void)
 
 	comand = look_in_path(tokcom[0]);
 
+	if (comand == NULL)
+	{
+		_puts(tokcom[0]);
+		perror(": 1: qwerty: not found");
+		return 1;
+	}
+	 
+    exe(comand, tokcom);
+
+
 
 	return (0);
 } 

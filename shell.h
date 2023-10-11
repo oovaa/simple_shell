@@ -7,10 +7,21 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <stdio.h>
 
 
 extern char **environ;
+typedef int (*func)(char **args);
+
+
+
+/* exec */
+int exe(char *com, char **arr);
+int exebi(char **arr);
+func check_built_ins(char *ch);
+
+
 
 
 /* string fuctions */
@@ -65,6 +76,7 @@ int ma_cd(char **args);
 /* handelcom */
 char **strtoarr(char *str, char del);
 char *look_in_path(char *str);
+
 
 
 
