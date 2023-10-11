@@ -1,5 +1,0 @@
-ls
-clear
-exit
-exit 34
-exit 43

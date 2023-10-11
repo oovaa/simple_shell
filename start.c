@@ -19,7 +19,7 @@ while (1)
 {
 	_puts("$ ");
 	getline(&comand, &line, stdin);
-	append_text_to_file("hisory.txt", comand);
+	append_text_to_file("history.txt", comand);
 
 	comand[_strcspn(comand, '\n')] = '\0';
 
