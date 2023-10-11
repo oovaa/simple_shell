@@ -21,13 +21,12 @@ func check_built_ins(char *ch)
 
 
 
-int exebi(char **arr)
+int exebi(func f, char **arr)
 {
+    int re = f(arr);
 
-return (0);
+    return (re);
 }
-
-
 
 
 
@@ -38,10 +37,10 @@ int exe(char *com, char **arr)
 
     f = check_built_ins(arr[0]);
     if (f != NULL)
-    exebi(arr);
-
+    return (exebi(f, arr));
 
     arr[0] = com;
+
 
     id = fork();
 
@@ -56,5 +55,13 @@ int exe(char *com, char **arr)
         wait(NULL);
         return (0);
     }    
-
 }
+
+
+/* int main(int argc, char const *argv[])
+{
+    char *arr[] = {"exit", "34", NULL};
+    char *com = "exit";
+    int re = exe(com, arr);
+    return re;
+} */

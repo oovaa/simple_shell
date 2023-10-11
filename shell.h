@@ -18,7 +18,7 @@ typedef int (*func)(char **args);
 
 /* exec */
 int exe(char *com, char **arr);
-int exebi(char **arr);
+int exebi(func f, char **arr);
 func check_built_ins(char *ch);
 
 

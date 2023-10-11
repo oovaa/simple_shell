@@ -41,3 +41,23 @@ int ma_cd(char **args)
 	}
 	return (0);
 }
+
+
+/*
+ int main()
+{
+    char *args[] = {"cd", "/home/omaar/cps", NULL};
+    int result = ma_cd(args);
+
+    if (result == 0)
+    {
+        printf("Directory changed successfully\n");
+    }
+    else
+    {
+        printf("Failed to change directory\n");
+    }
+
+    return result;
+}
+ */

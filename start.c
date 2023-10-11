@@ -7,7 +7,7 @@
 */
 
 
-int main(void)
+/* int main(void)
 {
 	char *comand = NULL;
 	char **tokcom = NULL;
@@ -24,17 +24,10 @@ int main(void)
 	comand = malloc(sizeof(char) * _strlen(tokcom[0] + 1));
 
 	comand = look_in_path(tokcom[0]);
-
-	if (comand == NULL)
-	{
-		_puts(tokcom[0]);
-		perror(": 1: qwerty: not found");
-		return 1;
-	}
 	 
     exe(comand, tokcom);
 
 
 
 	return (0);
-} 
+}  */
