@@ -29,8 +29,9 @@ char **strtoarr(char *str, char del)
        str += singlestrlen + 1;
      }
      else
+     {
        tok = _strdup(str);
-
+     }
        arr[i] = tok;
 
   }

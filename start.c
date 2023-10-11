@@ -15,6 +15,8 @@ int main(void)
 	int i;
 	int re = 0;
 	
+	(void)i;
+	
 while (1)
 {
 	_puts("$ ");
