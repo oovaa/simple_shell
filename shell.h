@@ -78,8 +78,7 @@ int ma_env(char **args);
 /* handelcom */
 char **strtoarr(char *str, char del);
 char *look_in_path(char *str);
-
-
+char *clean(char *str);
 
 
 

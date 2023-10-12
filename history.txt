@@ -170,3 +170,46 @@ clear
 exit
 exit
 exit
+                ls
+               /usr/bin/ls
+ls
+clear
+exit
+exit
+              ls
+               lslsls
+clear
+            /usr/bin/ls
+clear
+exit
+./simple-shell-test-suite/check_simple_shell.bash
+clear
+exit
+/bin/ls
+     /bin/ls
+/bin/ls     
+  /bin/ls     clear
+clear
+exit
+ls #-a
+ls #-a
+ls
+clear
+ls -a
+ls -a #tmp
+exit
+          ls #-a            
+             ls
+clear
+ls #ls
+clear
+ls 
+clear
+ls#
+clear
+ls #
+exit
+ls                  
+clear
+ls          #
+exit

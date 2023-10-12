@@ -7,7 +7,7 @@
 */
 
 
-int main(void)
+/* int main(void)
 {
 	char *comand = NULL;
 	char **tokcom = NULL;
@@ -21,9 +21,14 @@ while (1)
 {
 	_puts("$ ");
 	getline(&comand, &line, stdin);
+
+
+
 	append_text_to_file("history.txt", comand);
 
 	comand[_strcspn(comand, '\n')] = '\0';
+
+	comand = clean(comand);
 
 	tokcom = strtoarr(comand, ' ');
 
@@ -31,8 +36,8 @@ while (1)
 
 	comand = look_in_path(tokcom[0]);
 	 
-    re = exe(comand, tokcom);
+	re = exe(comand, tokcom);
 }
 	return (re);
 } 
-
+ */
