@@ -8,6 +8,7 @@ func check_built_ins(char *ch)
 	built_ins spc[] = {
 	    {"cd", &ma_cd},
 	    {"exit", &ma_exit},
+	    {"env", &ma_env},
 	    {NULL, NULL}
 	};
 
@@ -41,15 +42,19 @@ int exe(char *com, char **arr)
     if (f != NULL)
     return (exebi(f, arr));
 
+    if (com == NULL)
+    {
+        perror("./hsh: No such file or directory\n");
+        return (2);
+    }
     arr[0] = com;
-
 
     id = fork();
 
     if (id == 0)
     {
         execve(com, arr, environ);
-        perror("exec: not excuted");
+        perror("exe error: No such file or directory\n");
         return (2);
     }
     else

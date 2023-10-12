@@ -72,6 +72,7 @@ char *_getenv(char *name);
 /* custm */
 int ma_exit(char **args);
 int ma_cd(char **args);
+int ma_env(char **args);
 
 
 /* handelcom */

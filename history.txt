@@ -95,3 +95,78 @@ cat history.txt
 cat hisory.txt
 clear
 mv hisory.txt history.txt
+ls
+clear
+echo what next
+exit 34
+ls
+/bin/ls
+clear
+which clean
+which clear
+/usr/bin/clear
+asd
+exit
+exit
+cax
+clear
+ls
+cd
+exit
+ls
+clear
+pwd
+cd
+ls
+pwd
+cd
+ls
+pwd
+clear
+cd
+ls
+clear
+pwd
+cd
+sadc
+cdac
+cdaksdm
+cdlkmer
+exitfv
+exit
+cdada
+cd
+env
+envv
+clear
+env
+clear
+exit
+clear
+env
+env
+env
+env
+clear
+exit
+env
+exit
+env
+exit
+cd;km
+exit
+cd cdac
+exit
+env
+clear
+exit
+clear
+exiasd
+exit
+       ls
+     ls
+ls
+clear
+exit
+exit
+exit

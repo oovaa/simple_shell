@@ -29,15 +29,35 @@ int ma_cd(char **args)
 {
 	if (args[1] == NULL)
 	{
-		chdir("/home");
+		char *home;
+
+		home = getenv("HOME");
+		chdir(home);
 	}
 	else
 	{
 		if (chdir(args[1]) != 0)
 		{
-			perror("./hsh: 1: cd: can't cd to asas");
+			char *comand = getenv("_");
+			_puts(comand);
+			perror(": 1: cd: can't cd to asas");
 			return (-1);
 		}
+	}
+	return (0);
+}
+
+
+int ma_env(char **args)
+{
+	int i;
+
+	i = 0;
+
+	while (environ[i])
+	{
+		_puts(environ[i++]);
+		_putchar('\n');
 	}
 	return (0);
 }
