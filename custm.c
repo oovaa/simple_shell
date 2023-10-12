@@ -8,18 +8,17 @@
 */
 int ma_exit(char **args)
 {
-	if (args[1] != NULL)
-	{
-		exit (_atoi(args[1]));
-	}
-	else
-	{
-		exit (0);
-	}
+    if (args[1] != NULL && args[1][0] != '\0')
+    {
+        exit(_atoi(args[1]));
+    }
+    else
+    {
+        exit(0);
+    }
 }
 
-
-/**
+/*
  * ma_cd - Changes the current directory of the process
  * @args: target
  *
@@ -50,16 +49,14 @@ int ma_cd(char **args)
 
 int ma_env(char **args)
 {
-	int i;
-
-	i = 0;
-
-	while (environ[i])
-	{
-		_puts(environ[i++]);
-		_putchar('\n');
-	}
-	return (0);
+    int i = 0;
+    while (environ[i])
+    {
+        _puts(environ[i]);
+        _putchar('\n');
+        i++;
+    }
+    return 0;
 }
 
 

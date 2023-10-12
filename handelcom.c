@@ -35,7 +35,7 @@ char **strtoarr(char *str, char del)
 			 arr[i] = tok;
 
 	}
-			arr[i + 1] = NULL;
+			arr[i] = NULL;
 
 	return (arr);
 }
@@ -62,6 +62,12 @@ char *look_in_path(char *str)
 	for (i = 0; tok[i]; i++)
 	{
 		com = malloc(_strlen(tok[i]) + _strlen(str) + 2);
+		if (com == NULL)
+        {
+            perror("malloc failed");
+            return (NULL);
+        }
+
 		_strcpy(com, tok[i]);
 		_strcat(com, "/");
 		_strcat(com, str);
@@ -84,7 +90,7 @@ char *clean_end(char *str)
         i--;
     i += 1;
 
-	ans = malloc(sizeof(char) * i);
+	ans = malloc(sizeof(char) * (i + 1));
 	_strncpy(ans, str, i);
 	ans[i] = '\0';
 	
@@ -106,11 +112,12 @@ char *handle_hash(char *str)
         }
         i++;
     }
-	ans = malloc(sizeof(char) * i);
+	ans = malloc(sizeof(char) * (i + 1));
 	_strncpy(ans, str, i);
 
 	return (ans);
 }
+
 
 char *clean(char *str)
 {
@@ -122,25 +129,20 @@ char *clean(char *str)
 	
     while (*str == ' ')
         str++;
-	
+		
 	str = clean_end(str);
 
-    return str;
+    return (str);
 }
 
-int main(int argc, char const *argv[])
+/* int main(int argc, char const *argv[])
 {
 	char *n = "  omar   # abdo     ";
 	int i = 0;
-	n = handle_hash(n);
-	while (n[i])
-	{
-		if (n[i] == ' ')
-			_putchar('>');
-		else
-			_putchar(n[i]);
-		i++;
-	}
+	n = clean(n);
 
+	_puts(n);
+	
 	return (0);
-}
+} */
+

@@ -79,7 +79,8 @@ int ma_env(char **args);
 char **strtoarr(char *str, char del);
 char *look_in_path(char *str);
 char *clean(char *str);
-
+char *clean_end(char *str);
+char *handle_hash(char *str);
 
 
 typedef struct 

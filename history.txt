@@ -213,3 +213,163 @@ ls
 clear
 ls          #
 exit
+ls
+clear
+       ls
+ls            
+ls #-a
+ls       #-a
+clear
+ls
+exit
+
+
+exit
+exit
+exit
+
+
+exit
+exit
+exit
+             
+exit
+exit
+            
+           
+exit
+exit
+exit
+           
+             
+exit
+exit
+exit
+exit
+exit
+ls
+ls
+clear
+ls
+exit
+           
+clear
+exit
+exit
+             
+              
+
+            
+
+                  
+clear
+exit
+ls
+clear
+ls
+cd simple-shell-test-suite-master
+clear
+exit                     
+ls
+clear
+exit
+clear
+ls
+clear
+exit
+exit  
+clear
+ls
+clear
+exit   
+exti 
+exit
+rxit
+exit
+exit
+ls
+clear
+exit
+exit 
+exit
+ls
+clear
+exit
+ls
+clear
+pwd
+cd
+ls
+clear
+exit 23
+clear
+ls
+cd
+ls
+ls -a
+clear
+cd
+exit      
+exit               exit                                   exit                    exit
+ls
+ls
+clear
+ls
+exit
+ls
+ls
+ls
+clear
+exit
+ls
+clear
+ls
+clear
+ls
+pwd
+clear
+ls
+  cd simple-shell-test-suite-master
+ls
+ls
+  cd simple-shell-test-suite-master
+ls
+cd simple-shell-test-suite-master
+ls
+cd simple-shell-test-suite-master
+ls
+ls simple-shell-test-suite-master
+ls
+clear
+pwd
+cd ..
+ls
+pwd
+clear
+exit
+ls
+ls simple-shell-test-suite-master
+ls output.c
+ls
+clear
+ls .
+ls stat.md
+ls /tmp
+clear
+exit
+ls
+clear
+ls 
+ls output.c
+exif
+exit
+exit
+ls
+ls output.c
+ls /output.c
+pwd
+ls /home/omar/simple_shell/output.c
+sfv
+exit
+eae
+exit
