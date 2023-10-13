@@ -19,7 +19,7 @@ This shell project provides a basic command-line interface with support for buil
 1. **Compilation:**
    To compile the shell project, use the following command:
    ```bash
-   gcc -o shell *.c -Wall -Werror -pedantic -std=gnu89```
+   gcc -o shell *.c -Wall -Werror -pedantic -std=gnu89
 
 This command compiles all the source files into an executable named shell.
 
