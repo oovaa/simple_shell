@@ -14,13 +14,14 @@ int _putchar(char c)
  * _puts - prints a string, followed by a new line, to stdout.
  *@str: the string
  */
-void _puts(char *str)
+int _puts(char *str)
 {
 int i;
 i = 0;
 while (str[i])
 _putchar(str[i++]);
 
+return(i);
 }
 
 int getIdx(char *str, char c)

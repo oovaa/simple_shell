@@ -60,7 +60,7 @@ int _strncmp(char *s1, char *s2, int n)
 	{
 		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);
-		else if (s1[i] == '\0')
+		else if (s1[i] == '\0' || s2[i] == '\0')
 			break;
 	}
 	return (0);

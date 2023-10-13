@@ -6,8 +6,7 @@
  *
 */
 
-
-int main(void)
+/* int main(void)
 {
 	char *comand = NULL;
 	char **tokcom = NULL;
@@ -39,3 +38,4 @@ _puts("$ ");
 }
 	return (re);
 }
+ */

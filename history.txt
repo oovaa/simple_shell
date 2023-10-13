@@ -786,3 +786,43 @@ pwd
 cd /
 clear
 cd 
+clear
+exit
+ls
+clear
+pwd
+cd ..
+exit
+clear
+pwd
+cd 
+ls
+clear
+ls
+ls te
+clear
+exit
+exit
+exit
+exit
+exit
+clear
+cd 
+cd /
+clear
+cd /
+ls
+clear
+pwd
+cd ..
+clear
+cls
+cd 
+ls
+clear
+pwd
+cd ..
+pwd
+cd /
+env
+exit

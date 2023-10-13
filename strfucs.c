@@ -46,18 +46,26 @@ return (num * sign);
  * Return: printer to the concatenated string
  */
 
-char *_strcat(char *dest, char *src)
-{
-int i = 0;
-while (dest[i++] != '\0')
-;
+char *_strcat(char *dest, char *src) {
+    if (dest == NULL || src == NULL) {
+        fprintf(stderr, "Invalid arguments in _strcat\n");
+        return NULL;
+    }
 
-i--;
+    int i = 0;
+    while (dest[i] != '\0') {
+        i++;
+    }
 
-while (*src)
-dest[i++] = *src++;
+    int j = 0;
+    while (src[j] != '\0') {
+        dest[i + j] = src[j];
+        j++;
+    }
 
-return (dest);
+    dest[i + j] = '\0';
+
+    return dest;
 }
 
 

@@ -21,6 +21,8 @@ typedef int (*func)(char **args);
 int exe(char *com, char **arr);
 int exebi(func f, char **arr);
 func check_built_ins(char *ch);
+int bin_unsetenv(char **args);
+int bin_setenv(char **args);
 
 
 
@@ -45,7 +47,7 @@ int countchinstr(char *str, char ch);
 
 /* output */
 int _putchar(char c);
-void _puts(char *str);
+int _puts(char *str);
 int getIdx(char *str, char c);
 
 
@@ -63,7 +65,7 @@ int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
 
 
-/* setunsetenv */
+/* env */
 int _setenv(char *name, char *value, int overwrite);
 int _unsetenv(char *name);
 char *gpath();
@@ -73,6 +75,7 @@ char *_getenv(char *name);
 int ma_exit(char **args);
 int ma_cd(char **args);
 int ma_env(char **args);
+int is_empty_or_whitespace(const char *str);
 
 
 /* handelcom */

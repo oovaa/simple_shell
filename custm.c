@@ -19,6 +19,16 @@ int ma_exit(char **args)
 }
 
 
+int is_empty_or_whitespace(const char *str) {
+    while (*str) {
+        if (*str != ' ' && *str != '\t' && *str != '\n' && *str != '\r') {
+            return 0; // Not empty or whitespace
+        }
+        str++;
+    }
+    return 1; // Empty or whitespace
+}
+
 /*
  * ma_cd - Changes the current directory of the process
  * @args: target
@@ -26,99 +36,107 @@ int ma_exit(char **args)
  * Return: 1 (Sucess). Otherwise 0.
 */
 
+// Assume _getenv, _setenv, _strcmp are implemented elsewhere in your code
+
 int ma_cd(char **args) {
-    char cwd[1024];
-    if (getcwd(cwd, sizeof(cwd)) == NULL) {
-        perror("cd");
-        return -1;
-    }
 
-    if (args[1] == NULL || args[1][0] == '~') {
-        char *home = _getenv("HOME");
-		if ((args[0] + 1) != NULL)
-			_strcat(home, args[1] + 1);
+    char *target_dir = args[1];
 
-        if (home == NULL) {
-            fprintf(stderr, "cd: No $HOME variable set\n");
-            return -1;
+    if (target_dir == NULL || is_empty_or_whitespace(target_dir)) {
+        // No argument provided, change to home directory
+        target_dir = _getenv("HOME");
+        if (target_dir == NULL) {
+            fprintf(stderr, "ma_cd: No $HOME variable set\n");
+            return 1;
         }
-        if (chdir(home) != 0) {
-            perror("cd");
-            return -1;
-        }
-    } else if (_strcmp(args[1], "-") == 0) {
-        char *previous_dir = _getenv("OLDPWD");
-        if (previous_dir == NULL) {
-            fprintf(stderr, "cd: No previous directory available\n");
-            return -1;
-        }
-        if (chdir(previous_dir) != 0) {
-            perror("cd");
-            return -1;
-        }
-        printf("%s\n", previous_dir);
-
-        if (_strcmp(previous_dir, cwd) != 0 && _setenv("OLDPWD", cwd, 1) != 0) {
-            perror("cd");
-            return -1;
-        }
-        return 0; 
-    } else {
-        if (chdir(args[1]) != 0) {
-            perror("cd");
-            return -1;
+    } else if (_strcmp(target_dir, "-") == 0) {
+        // Change to the previous directory
+        target_dir = getenv("OLDPWD");
+        if (target_dir == NULL) {
+            fprintf(stderr, "ma_cd: No previous directory available\n");
+            return 1;
         }
     }
 
-    // Update the environment variable PWD
-    char new_cwd[1024];
-    if (getcwd(new_cwd, sizeof(new_cwd)) == NULL) {
-        perror("cd");
-        return -1;
-    }
-    if (_setenv("PWD", new_cwd, 1) != 0) {
-        perror("cd");
-        return -1;
-    }
-
-    // Update the environment variable OLDPWD
-    if (_strcmp(new_cwd, cwd) != 0 && _setenv("OLDPWD", cwd, 1) != 0) {
-        perror("cd");
-        return -1;
+    if (chdir(target_dir) != 0) {
+        perror("ma_cd");
+        return 1;
     }
 
     return 0;
 }
 
 
-int ma_env(char **args)
-{
-	int i = 0;
-	while (environ[i])
-	{
-		_puts(environ[i]);
-		_putchar('\n');
-		i++;
-	}
-	return 0;
+int ma_env(char **args) {
+    int i = 0;
+    while (environ[i]) {
+        if (_puts(environ[i]) == -1 || _putchar('\n') == -1) {
+            perror("puts/putchar");
+            return -1;
+        }
+        i++;
+    }
+    return 0;
 }
+/* 
+int main() {
+    char *cd_args_empty[] = {"cd", "-", NULL};
+    char *cd_args_home[] = {"cd", NULL};
+    char *cd_args_whitespace[] = {"cd", "   ", NULL};
+    char *env_args[] = {"env", NULL};
+    char *exit_args[] = {"exit", "42", NULL};
 
+    // Test ma_cd with empty string
+    printf("Testing ma_cd with empty string:\n");
+    if (ma_cd(cd_args_empty) == 0) {
+        char cwd[1024];
+        if (getcwd(cwd, sizeof(cwd)) == NULL) {
+            perror("getcwd");
+            return 1;
+        }
+        printf("ma_cd succeeded! Current directory: %s\n", cwd);
+    } else {
+        fprintf(stderr, "ma_cd failed!\n");
+    }
 
-/*
- int main()
-{
-	char *args[] = {"cd", "/home/omaar/cps", NULL};
-	int result = ma_cd(args);
+    // Test ma_cd without arguments (should default to home directory)
+    printf("\nTesting ma_cd without arguments (default to home directory):\n");
+    if (ma_cd(cd_args_home) == 0) {
+        char cwd[1024];
+        if (getcwd(cwd, sizeof(cwd)) == NULL) {
+            perror("getcwd");
+            return 1;
+        }
+        printf("ma_cd succeeded! Current directory: %s\n", cwd);
+    } else {
+        fprintf(stderr, "ma_cd failed!\n");
+    }
 
-	if (result == 0)
-	{
-		printf("Directory changed successfully\n");
-	}
-	else
-	{
-		printf("Failed to change directory\n");
-	}
+    // Test ma_cd with whitespace string (should default to home directory)
+    printf("\nTesting ma_cd with whitespace string (default to home directory):\n");
+    if (ma_cd(cd_args_whitespace) == 0) {
+        char cwd[1024];
+        if (getcwd(cwd, sizeof(cwd)) == NULL) {
+            perror("getcwd");
+            return 1;
+        }
+        printf("ma_cd succeeded! Current directory: %s\n", cwd);
+    } else {
+        fprintf(stderr, "ma_cd failed!\n");
+    }
 
-	return result;
+    // Test ma_env
+    // printf("\nTesting ma_env:\n");
+    // if (ma_env(env_args) == 0) {
+    //     printf("ma_env succeeded!\n");
+    // } else {
+    //     fprintf(stderr, "ma_env failed!\n");
+    // }
+
+    // Test ma_exit
+    printf("\nTesting ma_exit:\n");
+    ma_exit(exit_args);  // Note: This will exit the program
+
+    return 0;
 }
  */
