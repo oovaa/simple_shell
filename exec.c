@@ -1,22 +1,23 @@
 #include "shell.h"
 
+// Updated setenv function with override option
 int bin_setenv(char **args) {
-    if (args == NULL || args[1] == NULL || args[2] == NULL) {
-        fprintf(stderr, "Usage: setenv VARIABLE VALUE\n");
-        return 1;
+    if (args[1] == NULL || args[2] == NULL) {
+        fprintf(stderr, "Usage: setenv VARIABLE VALUE [override]\n");
+        return -1;
     }
 
     char *name = args[1];
     char *value = args[2];
+    int overwrite = (args[3] != NULL) ? _atoi(args[3]) : 1;
 
-    if (_setenv(name, value, 1) != 0) {
-        perror("bin_setenv");
-        return 1;
+    if (_setenv(name, value, overwrite) != 0) {
+        perror("setenv");
+        return -1;
     }
 
     return 0;
 }
-
 
 
 int bin_unsetenv(char **args) {
