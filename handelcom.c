@@ -63,10 +63,10 @@ char *look_in_path(char *str)
 	{
 		com = malloc(_strlen(tok[i]) + _strlen(str) + 2);
 		if (com == NULL)
-        {
-            perror("malloc failed");
-            return (NULL);
-        }
+		{
+			perror("malloc failed");
+			return (NULL);
+		}
 
 		_strcpy(com, tok[i]);
 		_strcat(com, "/");
@@ -86,15 +86,18 @@ char *clean_end(char *str)
 	char *ans;
 
 	i = _strlen(str) - 1;
-    while (i >= 0 && str[i] == ' ')
-        i--;
-    i += 1;
+	while (i >= 0 && str[i] == ' ')
+		i--;
+	i += 1;
 
-	ans = malloc(sizeof(char) * (i + 1));
-	_strncpy(ans, str, i);
-	ans[i] = '\0';
-	
-
+    ans = malloc(sizeof(char) * (i + 1));
+    if (ans != NULL) {
+        _strncpy(ans, str, i);
+        ans[i] = '\0';
+    } else {
+        perror("Memory allocation failed in clean_end()");
+		return (NULL);
+    }
 return ans;
 }
 
@@ -104,17 +107,22 @@ char *handle_hash(char *str)
 	int i;
 
 	i = 0;
-    while (str[i])
-    {
-        if (str[i] == '#')
-        {
-            break;
-        }
-        i++;
-    }
-	ans = malloc(sizeof(char) * (i + 1));
-	_strncpy(ans, str, i);
-
+	while (str[i])
+	{
+		if (str[i] == '#')
+		{
+			break;
+		}
+		i++;
+	}
+ ans = malloc(sizeof(char) * (i + 1));
+	if (ans != NULL) {
+		_strncpy(ans, str, i);
+	} else
+	{
+		perror("Memory allocation failed in handle_hash()");
+		return(NULL);
+	}
 	return (ans);
 }
 
@@ -122,27 +130,16 @@ char *handle_hash(char *str)
 char *clean(char *str)
 {
 
-    if (str == NULL)
-        return NULL;
+	if (str == NULL)
+		return NULL;
 
 	str = handle_hash(str);
 	
-    while (*str == ' ')
-        str++;
+	while (*str == ' ')
+		str++;
 		
 	str = clean_end(str);
 
-    return (str);
+	return (str);
 }
-
-/* int main(int argc, char const *argv[])
-{
-	char *n = "  omar   # abdo     ";
-	int i = 0;
-	n = clean(n);
-
-	_puts(n);
-	
-	return (0);
-} */
 

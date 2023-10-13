@@ -14,25 +14,28 @@ int main(void)
 	size_t line = 0;
 	int i;
 	int re = 0;
-	
+
 	(void)i;
-	
+
 while (1)
 {
-	_puts("$ ");
-	getline(&comand, &line, stdin);
+_puts("$ ");
+		getline(&comand, &line, stdin);
 
-	append_text_to_file("history.txt", comand);
+		append_text_to_file("history.txt", comand);
 
-	comand[_strcspn(comand, '\n')] = '\0';
+		comand[_strcspn(comand, '\n')] = '\0';
 
-	comand = clean(comand);
 
-	tokcom = strtoarr(comand, ' ');
+		comand = clean(comand);
 
-	comand = look_in_path(tokcom[0]);
-	
-	re = exe(comand, tokcom);
+		tokcom = strtoarr(comand, ' ');
+
+		comand = look_in_path(tokcom[0]);
+
+
+		re = exe(comand, tokcom);
+
 }
 	return (re);
-} 
+}

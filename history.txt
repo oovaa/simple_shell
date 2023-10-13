@@ -373,3 +373,416 @@ sfv
 exit
 eae
 exit
+ls
+clear
+ls -a
+clear
+ls 
+which ls
+clear
+which cat
+ls
+cat exec.c
+clear
+ls
+ls simple-shell-test-suite-master
+ls
+clear
+ls
+ls simple-shell-test-suite-master
+ls simple-shell-test-suite-master
+clear
+ls
+ls simple-shell-test-suite-master
+ls
+ls
+clear
+ls
+clear
+ls 
+ls simple-shell-test-suite-master
+ls
+lssimple-shell-test-suite-master
+clear
+ls
+ls simple-shell-test-suite-master
+ls
+ls simple-shell-test-suite-master
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls/bin/ls
+/bin/ls/bin/ls
+     /bin/ls
+/bin/ls
+   /bin/ls     
+/bin/ls                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+/home/omar/.bun/bin//home/omar/.bun/bin/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+/home/omar/.bun/bin//home/omar/.bun/bin/                
+/home/omar/.bun/bin//home/omar/.bun/bin/./hbtn_ls /var
+./hbtn_ls/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls/bin/ls
+/bin/ls/bin/ls
+     /bin/ls
+/bin/ls
+   /bin/ls     
+/bin/ls                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+/home/omar/.bun/bin//home/omar/.bun/bin/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+/home/omar/.bun/bin//home/omar/.bun/bin/                
+/home/omar/.bun/bin//home/omar/.bun/bin/./hbtn_ls /var
+./hbtn_ls/bin/ls /var
+/bin/ls/bin/ls -l
+/bin/ls/bin/echo Holberton
+/bin/echo/bin/ls /var
+/bin/ls/bin/ls -l
+/bin/ls/bin/ls
+/bin/ls/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls/bin/ls
+/bin/ls                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   /bin/ls                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+/bin/ls                                       /bin/ls                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+/bin/ls/bin/ls
+     /bin/ls
+/bin/ls
+   /bin/ls     
+/bin/lshbtn_cmd
+/bin/ls
+/bin/lsls
+ls -l
+/usr/bin/lsls
+/usr/bin/ls.hbtn_ls /var
+.hbtn_lsls
+./hbtn_ls /var
+./hbtn_ls../hbtn_ls /var
+../hbtn_ls./.././../hbtn_ls /var
+./.././../////././hbtn_ls /var
+../../hbtn_ls /var
+ls
+/bin/lsls
+/usr/bin/lsls
+/bin/lsls
+/usr/bin/lsls
+     ls
+ls
+ ls     
+/usr/bin/lsls
+ls
+ls
+/bin/ls
+ls
+ls
+ls
+/bin/ls
+ls
+ls
+/usr/bin/lsls
+
+
+ /bin/ls
+
+
+     ls
+ls
+ ls     
+/usr/bin/ls     ls
+ls
+ ls     
+/usr/bin/ls
+     ls
+ls
+ ls     
+/usr/bin/ls     ls
+ls
+ ls     
+/usr/bin/ls /bin/ls
+
+
+     ls
+ls
+ ls     
+/usr/bin/ls     ls
+ls
+ ls     
+/usr/bin/ls
+     ls
+ls
+ ls     
+/usr/bin/ls     ls
+ls
+ ls     
+/usr/bin/ls
+ /bin/ls
+
+
+     ls
+ls
+ ls     
+/usr/bin/ls     ls
+ls
+ ls     
+/usr/bin/ls
+     ls
+ls
+ ls     
+/usr/bin/ls     ls
+ls
+ ls     
+/usr/bin/ls /bin/ls
+
+
+     ls
+ls
+ ls     
+/usr/bin/ls     ls
+ls
+ ls     
+/usr/bin/ls
+     ls
+ls
+ ls     
+/usr/bin/ls     ls
+ls
+ ls     
+/usr/bin/lshbtn_ls /var
+hbtn_lshbtn_ls
+hbtn_lshbtn
+alias ls_alias=/bin/ls
+alias
+alias ls_alias=/bin/ls
+ls_alias
+alias ls_alias=/bin/ls
+alias ls_alias_alias=ls_alias
+ls_alias_alias
+alias TEST_OVERWRITE=b
+alias TEST_OVERWRITE=hbtn
+alias
+alias alias1=/bin/ls alias2=/bin/echo alias1 alias3=/bin/pwd alias1=/bin/echo alias1 alias2
+alias alias1=/bin/ls alias2=/bin/echo alias3=/bin/pwd
+alias
+alias alias1=/bin/ls alias1=/bin/echo alias1=/bin/pwd
+alias
+alias alias1=/bin/ls
+alias alias2=/bin/echo
+alias alias3=/bin/pwd
+alias alias1 alias3
+cd /tmp
+cd -
+/bin/pwd
+/bin/pwdcd -
+/bin/pwd
+/bin/pwdcd
+cd
+cd
+/bin/pwd
+/bin/pwdcd /root
+/bin/pwd
+/bin/pwdcd /tmp
+cd /hbtn
+/bin/pwd
+/bin/pwd/bin/echo #This is a comment
+/bin/echo/bin/echo HBTN #This is a comment
+/bin/echo/bin/echo HBTN#This is a comment
+/bin/echo/bin/echo HBTN # This is a comment
+/bin/echo# This is a comment
+/home/omar/.bun/bin//home/omar/.bun/bin/env
+/usr/bin/envenv
+env
+/bin/ls /test_hbtn
+exit
+exit
+exit 1000
+exit -98
+/bin/ls /test_hbtn
+exit
+exit
+exit HBTN
+
+/home/omar/.bun/bin//home/omar/.bun/bin/
+/home/omar/.bun/bin//home/omar/.bun/bin/
+/home/omar/.bun/bin//home/omar/.bun/bin/
+/home/omar/.bun/bin//home/omar/.bun/bin//bin/ls
+/bin/ls                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   /bin/ls                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+/bin/ls                                       /bin/ls                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+/bin/ls/bin/ls && /bin/ls && /bin/ls
+/bin/ls/bin/ls && /bin/ls && /bin/ls hbtnFTW
+/bin/ls/bin/ls && /bin/ls
+/bin/ls/bin/ls && /bin/ls hbtnFTW && /bin/ls
+/bin/ls/bin/ls && /bin/ls hbtnFTW
+/bin/ls/bin/ls && /bin/ls hbtnFTW || /bin/ls
+/bin/ls/bin/ls&&/bin/ls
+/bin/ls hbtnFTW && /bin/ls && /bin/ls
+/bin/ls/bin/ls hbtnFTW && /bin/ls
+/bin/ls/bin/ls hbtnFTW || /bin/ls && /bin/ls
+/bin/ls/bin/ls hbtnFTW || /bin/ls
+/bin/ls/bin/ls hbtnFTW || /bin/ls hbtnFTW
+/bin/ls/bin/ls hbtnFTW || /bin/ls hbtnFTW || /bin/ls hbtnFTW
+/bin/ls/bin/ls hbtnFTW||/bin/ls
+/bin/ls/bin/ls hbtnFTW || /bin/ls || /bin/ls
+/bin/ls/bin/ls || /bin/ls
+/bin/ls/bin/ls || /bin/ls hbtnFTW
+/bin/ls/bin/ls || /bin/ls hbtnFTW || /bin/ls
+/bin/ls/bin/ls || /bin/ls || /bin/ls
+/bin/ls/bin/ls hbtnFTW ; /bin/ls
+/bin/ls/bin/ls hbtnFTW ; /bin/ls hbtnFTW
+/bin/ls/bin/ls ;
+/bin/ls/bin/ls ; /bin/ls
+/bin/ls/bin/ls;/bin/ls
+/bin/ls ; /bin/ls ; /bin/ls
+/bin/ls/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls/bin/ls
+/bin/ls/bin/ls
+     /bin/ls
+/bin/ls
+   /bin/ls     
+/bin/lsclear
+exit
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls/bin/ls
+/bin/ls/bin/ls
+     /bin/ls
+/bin/ls
+   /bin/ls     
+/bin/ls                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+/home/omar/.bun/bin//home/omar/.bun/bin/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+/home/omar/.bun/bin//home/omar/.bun/bin/                
+/home/omar/.bun/bin//home/omar/.bun/bin/./hbtn_ls /var
+./hbtn_ls/bin/ls /var
+/bin/ls/bin/ls -l
+/bin/ls/bin/echo Holberton
+/bin/echo/bin/ls /var
+/bin/ls/bin/ls -l
+/bin/ls/bin/ls
+/bin/ls/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls/bin/ls
+/bin/ls                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   /bin/ls                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+/bin/ls                                       /bin/ls                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+/bin/ls                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   /bin/ls                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+/bin/lsls
+clear
+ls
+ls exec.c
+omar
+clear
+ls -l exec.c
+ls
+ls setunsetenv.c
+clear
+
+
+
+
+
+clear
+exias
+exot
+lscac
+ls -a
+clear
+ls -l
+clear
+ls /tmp
+clear
+ls 
+ls strfucs.c
+clear
+exit
+exit
+exit
+exit
+exit
+as
+sdsc
+ls
+ls -a
+clear
+ls
+ls start.c
+/usr/bin/ls start.c
+ls
+clear
+pwd
+cd ..
+pwd
+cd -
+clear
+ls
+pwd
+cd ..
+cd /
+exit
+ls
+pwd
+cd ..
+ls
+pwd
+clear
+cd -
+pwd
+cd ..
+pwd
+cd ..
+pwd
+ls
+clear
+cd 
+pwd
+clear
+ls
+clear
+pwd -
+clear
+cd -
+cd ..
+cd /
+pwd
+ls
+clear
+ls
+pwd
+cd ..
+pwd
+cd
+pwd
+clear
+exit
+clear
+ls
+pwd
+clear
+cd ..
+pwd
+cd ..
+cd -
+cd -
+ls
+pwd
+clear
+pwd
+ cd ..
+cd -
+cd -
+cd .
+cd /
+clear
+ls
+clear
+pwd
+cd ..
+clear
+pwd
+ cd
+ls
+clear
+pwd
+cd /
+clear
+cd 
