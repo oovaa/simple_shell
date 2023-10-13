@@ -48,8 +48,9 @@ Simple Shell$ env
 PATH=/usr/bin:/bin
 HOME=/home/user
 Simple Shell$ exit
-Main Function:
 ```
+
+Main Function:
 
 ```
 #include "shell.h"
