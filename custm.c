@@ -37,29 +37,27 @@ int is_empty_or_whitespace(const char *str) {
 */
 
 // Assume _getenv, _setenv, _strcmp are implemented elsewhere in your code
-
 int ma_cd(char **args) {
-
     char *target_dir = args[1];
 
     if (target_dir == NULL || is_empty_or_whitespace(target_dir)) {
         // No argument provided, change to home directory
         target_dir = _getenv("HOME");
         if (target_dir == NULL) {
-            fprintf(stderr, "ma_cd: No $HOME variable set\n");
+            perror("./hsh: 1");
             return 1;
         }
     } else if (_strcmp(target_dir, "-") == 0) {
         // Change to the previous directory
         target_dir = getenv("OLDPWD");
         if (target_dir == NULL) {
-            fprintf(stderr, "ma_cd: No previous directory available\n");
+            perror("./hsh: 1");
             return 1;
         }
     }
 
     if (chdir(target_dir) != 0) {
-        perror("ma_cd");
+        perror("./hsh: 1");
         return 1;
     }
 

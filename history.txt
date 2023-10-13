@@ -930,3 +930,47 @@ echo $?
 clear
 echo $?
 exit
+echo $?
+echo $$
+echo $?
+asda
+echo $?
+c;ear
+echo $?
+clear
+exit
+clear
+ls
+ls simple-shell-test-suite-master
+clear
+echo nice
+clear
+hahaha
+echo $?
+echo $?
+echo $?
+echo $?
+echo $$
+echo $$
+echo $$
+echo $$
+echo $$
+ls ./simple-shell-test-suite-master
+cd kmda
+cd -
+exit
+exit
+ls
+exit
+clear
+ls
+pwd
+exit
+ls
+pwd
+clear
+cd -
+clear
+ls
+clear
+exit

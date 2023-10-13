@@ -48,7 +48,7 @@ return (num * sign);
 
 char *_strcat(char *dest, char *src) {
     if (dest == NULL || src == NULL) {
-        fprintf(stderr, "Invalid arguments in _strcat\n");
+        perror("./hsh: 1");
         return NULL;
     }
 

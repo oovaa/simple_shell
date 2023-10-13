@@ -3,7 +3,7 @@
 // Updated setenv function with override option
 int bin_setenv(char **args) {
     if (args[1] == NULL || args[2] == NULL) {
-        fprintf(stderr, "Usage: setenv VARIABLE VALUE [override]\n");
+        perror("setenv: Too few arguments. Usage: setenv VARIABLE VALUE [override]");
         return -1;
     }
 
@@ -12,7 +12,7 @@ int bin_setenv(char **args) {
     int overwrite = (args[3] != NULL) ? _atoi(args[3]) : 1;
 
     if (_setenv(name, value, overwrite) != 0) {
-        perror("setenv");
+        perror("setenv: Unable to set environment variable");
         return -1;
     }
 
@@ -22,14 +22,14 @@ int bin_setenv(char **args) {
 
 int bin_unsetenv(char **args) {
     if (args[1] == NULL) {
-        fprintf(stderr, "Usage: unsetenv VARIABLE\n");
+        perror("unsetenv: Missing argument. Usage: unsetenv VARIABLE");
         return 1;
     }
 
     char *name = args[1];
 
     if (_unsetenv(name) != 0) {
-        perror("bin_unsetenv");
+        perror("unsetenv: Unable to unset environment variable");
         return 1;
     }
 
@@ -43,8 +43,8 @@ func check_built_ins(char *ch)
 
 	built_ins spc[] = {
 		{"cd", &ma_cd},
-		{"exit", &ma_exit},
 		{"env", &ma_env},
+		{"exit", &ma_exit},
 		{"setenv", &bin_setenv},
 		{"unsetenv", &bin_unsetenv},
 		{NULL, NULL}
@@ -79,6 +79,12 @@ int exe(char *com, char **arr)
 	f = check_built_ins(arr[0]);
 	if (f != NULL)
 		return (exebi(f, arr));
+
+    if (_strcmp(arr[0], "exit") == 0)
+    {
+        // Call the exit function directly
+        ma_exit(arr);
+    }
 
 	printf("%s %s c= %s\n", arr[0], arr[1], com);
 
@@ -118,7 +124,7 @@ int exe(char *com, char **arr)
     if (bin_setenv(setenv_args) == 0) {
         printf("Environment variable set successfully!\n");
     } else {
-        fprintf(stderr, "Failed to set environment variable\n");
+        perror(stderr, "Failed to set environment variable\n");
     }
 
     printf("\nTest 2: Unset environment variable\n");
