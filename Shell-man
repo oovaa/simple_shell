@@ -1,0 +1,61 @@
+.TH SHELL 1 "October 2023" "Simple Shell Project Manual"
+
+.SH NAME
+shell \- simple shell implementation in C
+
+.SH SYNOPSIS
+.B shell
+[\fIOPTION\fR]...
+
+.SH DESCRIPTION
+The \fBshell\fR command starts a simple shell, providing a basic command-line interface.
+
+.SH OPTIONS
+.TP
+.BI exit
+Exit the shell.
+
+.TP
+.BI cd [DIRECTORY]
+Change the current directory.
+
+.TP
+.B env
+Display environment variables.
+
+.TP
+.B setenv [VAR] [VALUE] [OVERWRITE]
+Set an environment variable.
+
+.TP
+.B unsetenv [VAR]
+Unset an environment variable.
+
+.SH EXAMPLES
+.B shell
+Start the simple shell.
+
+.B shell -h
+Display help information.
+
+.SH AUTHOR
+Written by [Your Name].
+
+.SH REPORTING BUGS
+Report bugs to [Your Email].
+
+.SH COPYRIGHT
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+.SH SEE ALSO
+Full documentation is available at [link to documentation].
+
+.SH NOTES
+This man page is a basic template. Update it with specific information about your project.
+
+.SH VERSION
+1.0
+
+.SH DATE
+October 2023
