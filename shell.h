@@ -49,13 +49,13 @@ int countchinstr(char *str, char ch);
 int _putchar(char c);
 int _puts(char *str);
 int getIdx(char *str, char c);
-
-
+void replace_variables(char *command, int status);
 
 
 /* memfuncs */
 char *_memcpy(char *dest, char *src, unsigned int n);
 char *_memset(char *s, char b, unsigned int n);
+void rev_string(char *s);
 
 
 
@@ -76,6 +76,7 @@ int ma_exit(char **args);
 int ma_cd(char **args);
 int ma_env(char **args);
 int is_empty_or_whitespace(const char *str);
+void _int_to_str(int num, char *str);
 
 
 /* handelcom */

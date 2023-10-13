@@ -72,21 +72,22 @@ int _setenv(char *name, char *value, int overwrite)
 
 int _unsetenv(char *name)
 {
-    int i, last = 0;
+	int i, last = 0;
 
-    while (environ[last + 1])
-        last++;
+	while (environ[last + 1])
+		last++;
 
-    for (i = 0; environ[i]; i++) {
-        if (_strncmp(name, environ[i], _strlen(name)) == 0) {
-            free(environ[i]);
-            environ[i] = environ[last];
-            environ[last] = NULL;
-            return 0; // Always return success
-        }
-    }
+	for (i = 0; environ[i]; i++) {
+		if (_strncmp(name, environ[i], _strlen(name)) == 0) {
+			free(environ[i]);
+			environ[i] = environ[last];
+			environ[last] = NULL;
+			return 0; // Always return success
+		}
+	}
 
-    return 0; // Return success even if the variable was not found
+	fprintf(stderr, "unsetenv: %s: not found\n", name);
+	return -1; // Return an error if the variable is not found
 }
 
 /**
@@ -121,25 +122,25 @@ char *_getenv(char *name)
 	int i;
 	int len;
 
-    if (name == NULL || *name == '\0') {
-        fprintf(stderr, "Invalid argument in _getenv\n");
-        return NULL;
-    }
+	if (name == NULL || *name == '\0') {
+		fprintf(stderr, "Invalid argument in _getenv\n");
+		return NULL;
+	}
 
-    len = _strlen(name);
+	len = _strlen(name);
 
-    if (environ == NULL) {
-        fprintf(stderr, "environ is NULL\n");
-        return NULL;
-    }
+	if (environ == NULL) {
+		fprintf(stderr, "environ is NULL\n");
+		return NULL;
+	}
 
-    for (i = 0; environ[i]; i++) {
-        if (environ[i][len] == '=' && _strncmp(name, environ[i], len) == 0) {
-            return (environ[i] + len + 1);
-        }
-    }
+	for (i = 0; environ[i]; i++) {
+		if (environ[i][len] == '=' && _strncmp(name, environ[i], len) == 0) {
+			return (environ[i] + len + 1);
+		}
+	}
 
-    return NULL;
+	return NULL;
 }
 /* 
 int main() {

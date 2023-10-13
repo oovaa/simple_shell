@@ -6,7 +6,7 @@
  *
 */
 
-/* int main(void)
+int main(void)
 {
 	char *comand = NULL;
 	char **tokcom = NULL;
@@ -25,6 +25,7 @@ _puts("$ ");
 
 		comand[_strcspn(comand, '\n')] = '\0';
 
+        replace_variables(comand, re);
 
 		comand = clean(comand);
 
@@ -32,10 +33,8 @@ _puts("$ ");
 
 		comand = look_in_path(tokcom[0]);
 
-
 		re = exe(comand, tokcom);
 
 }
 	return (re);
 }
- */

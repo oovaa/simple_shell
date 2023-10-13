@@ -78,6 +78,28 @@ int ma_env(char **args) {
     }
     return 0;
 }
+
+void _int_to_str(int num, char *str) {
+    int i = 0, sign = 0;
+
+    if (num < 0) {
+        sign = 1;
+        num = -num;
+    }
+
+    do {
+        str[i++] = num % 10 + '0';
+        num /= 10;
+    } while (num > 0);
+
+    if (sign) {
+        str[i++] = '-';
+    }
+
+    str[i] = '\0';
+    rev_string(str);
+}
+
 /* 
 int main() {
     char *cd_args_empty[] = {"cd", "-", NULL};

@@ -826,3 +826,107 @@ pwd
 cd /
 env
 exit
+ls
+clear
+ls
+ls simple-shell-test-suite-master
+clear
+ls
+ls ./simple-shell-test-suite-master
+ls
+cd simple-shell-test-suite-master
+cd
+ls
+cd simple-shell-test-suite-master
+ls
+clear
+ls
+pwd
+clear
+ls
+ls /tmp
+clear
+pwd
+ls
+ls /home/omar/simple_shell/simple-shell-test-suite-master
+clear
+cd
+cleaar
+clear
+ls
+pwd
+clear
+ls
+ls /etc
+clear
+ls
+ls ./simple-shell-test-suite-master
+clear
+ls
+ls simple-shell-test-suite-master
+clear
+ls
+cat env.c
+clear
+exit
+clear
+setenv VARIABLE VALUE
+unsetenv VARIABLE
+unsetenv VARIABLE
+unsetenv akm;fas
+ls
+clear
+ls
+exit
+clear
+ls
+clear
+pwd
+setenv name mna
+unsetenv hshasc
+unsetenv name
+clear
+clear
+exit 42342
+echo $$
+echo $$
+echo $$
+echo $$
+echo $?
+asdvd
+echo $$
+dfs
+echo $?
+exit
+clear
+echo $$
+ echo $$
+ echo $$
+ echo $?
+sacdc
+ echo $?
+exit
+ls
+clear
+echo $?
+echo $$
+exit
+clear
+echo $$
+ls
+clear
+echo $$
+echo $?
+clear
+exit
+echo $$
+echo $$
+clear
+echo $?
+lkmlk
+echo $?
+cd ;lamc
+echo $?
+clear
+echo $?
+exit

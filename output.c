@@ -36,3 +36,27 @@ int getIdx(char *str, char c)
 
 	return -1;
 }
+
+void replace_variables(char *command, int status) {
+    char *ptr;
+    char buffer[1024];
+    int pid = getpid();
+
+    // Replace $$ with the process ID
+    while ((ptr = _strstr(command, "$$")) != NULL) {
+        *ptr = '\0';
+        _strcpy(buffer, command);
+        _int_to_str(pid, buffer + _strlen(buffer));
+        _strcat(buffer, ptr + 2);
+        _strcpy(command, buffer);
+    }
+
+    // Replace $? with the exit status of the last command
+    while ((ptr = _strstr(command, "$?")) != NULL) {
+        *ptr = '\0';
+        _strcpy(buffer, command);
+        _int_to_str(status, buffer + _strlen(buffer));
+        _strcat(buffer, ptr + 2);
+        _strcpy(command, buffer);
+    }
+}

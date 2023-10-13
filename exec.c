@@ -36,57 +36,6 @@ int bin_unsetenv(char **args) {
     return 0;
 }
 
-int main(void) {
-    char *setenv_args[] = {"setenv", "TEST_VAR", "test_value", NULL};
-    char *unsetenv_args[] = {"unsetenv", "TEST_VAR", NULL};
-    char *unsetenv_invalid_args[] = {"unsetenv", NULL};
-    char *setenv_missing_value_args[] = {"setenv", "TEST_VAR", NULL};
-    char *unsetenv_missing_name_args[] = {"unsetenv", NULL};
-
-    printf("Test 1: Set environment variable\n");
-    if (bin_setenv(setenv_args) == 0) {
-        printf("Environment variable set successfully!\n");
-    } else {
-        fprintf(stderr, "Failed to set environment variable\n");
-    }
-
-    printf("\nTest 2: Unset environment variable\n");
-    if (bin_unsetenv(unsetenv_args) == 0) {
-        printf("Environment variable unset successfully!\n");
-    } else {
-        fprintf(stderr, "Failed to unset environment variable\n");
-    }
-
-    printf("\nTest 3: Set environment variable with missing value\n");
-    if (bin_setenv(setenv_missing_value_args) == 0) {
-        printf("Environment variable set successfully!\n");
-    } else {
-        fprintf(stderr, "Failed to set environment variable\n");
-    }
-
-    printf("\nTest 4: Unset environment variable with missing name\n");
-    if (bin_unsetenv(unsetenv_missing_name_args) == 0) {
-        printf("Environment variable unset successfully!\n");
-    } else {
-        fprintf(stderr, "Failed to unset environment variable\n");
-    }
-
-    printf("\nTest 5: Set environment variable with missing name\n");
-    if (bin_setenv(NULL) == 0) {
-        printf("Environment variable set successfully!\n");
-    } else {
-        fprintf(stderr, "Failed to set environment variable\n");
-    }
-
-    printf("\nTest 6: Unset environment variable with missing name\n");
-    if (bin_unsetenv(NULL) == 0) {
-        printf("Environment variable unset successfully!\n");
-    } else {
-        fprintf(stderr, "Failed to unset environment variable\n");
-    }
-
-    return 0;
-}
 
 func check_built_ins(char *ch)
 {
@@ -157,13 +106,57 @@ int exe(char *com, char **arr)
 }
 
 
-/*
- *int main(int argc, char const *argv[])
- *{
- *	char *arr[] =
- *	{"exit", "34", NULL};
- *	char *com = "exit";
- *	int re = exe(com, arr);
- *	return re;
- *}
+
+/* int main(void) {
+    char *setenv_args[] = {"setenv", "TEST_VAR", "test_value", NULL};
+    char *unsetenv_args[] = {"unsetenv", "TEST_VAR", NULL};
+    char *unsetenv_invalid_args[] = {"unsetenv", NULL};
+    char *setenv_missing_value_args[] = {"setenv", "TEST_VAR", NULL};
+    char *unsetenv_missing_name_args[] = {"unsetenv", NULL};
+
+    printf("Test 1: Set environment variable\n");
+    if (bin_setenv(setenv_args) == 0) {
+        printf("Environment variable set successfully!\n");
+    } else {
+        fprintf(stderr, "Failed to set environment variable\n");
+    }
+
+    printf("\nTest 2: Unset environment variable\n");
+    if (bin_unsetenv(unsetenv_args) == 0) {
+        printf("Environment variable unset successfully!\n");
+    } else {
+        fprintf(stderr, "Failed to unset environment variable\n");
+    }
+
+    printf("\nTest 3: Set environment variable with missing value\n");
+    if (bin_setenv(setenv_missing_value_args) == 0) {
+        printf("Environment variable set successfully!\n");
+    } else {
+        fprintf(stderr, "Failed to set environment variable\n");
+    }
+
+    printf("\nTest 4: Unset environment variable with missing name\n");
+    if (bin_unsetenv(unsetenv_missing_name_args) == 0) {
+        printf("Environment variable unset successfully!\n");
+    } else {
+        fprintf(stderr, "Failed to unset environment variable\n");
+    }
+
+    printf("\nTest 5: Set environment variable with missing name\n");
+    if (bin_setenv(NULL) == 0) {
+        printf("Environment variable set successfully!\n");
+    } else {
+        fprintf(stderr, "Failed to set environment variable\n");
+    }
+
+    printf("\nTest 6: Unset environment variable with missing name\n");
+    if (bin_unsetenv(NULL) == 0) {
+        printf("Environment variable unset successfully!\n");
+    } else {
+        fprintf(stderr, "Failed to unset environment variable\n");
+    }
+
+    return 0;
+}
  */
+

@@ -25,6 +25,12 @@ char **strtoarr(char *str, char del)
 		 if (singlestrlen != -1)
 		 {
 			 tok = malloc(sizeof(char) * (singlestrlen + 1));
+			 if (tok == NULL) {
+				perror("malloc failed");
+				free(arr);  // Free the previously allocated memory
+				return NULL;
+			}
+
 			 _strncpy(tok, str, singlestrlen);
 			 str += singlestrlen + 1;
 		 }
@@ -33,7 +39,6 @@ char **strtoarr(char *str, char del)
 			 tok = _strdup(str);
 		 }
 			 arr[i] = tok;
-
 	}
 			arr[i] = NULL;
 
@@ -65,6 +70,7 @@ char *look_in_path(char *str)
 		if (com == NULL)
 		{
 			perror("malloc failed");
+			free(tok);  // Free the previously allocated memory // Updated: Added memory deallocation
 			return (NULL);
 		}
 
@@ -73,10 +79,13 @@ char *look_in_path(char *str)
 		_strcat(com, str);
 		com[_strlen(com)] = '\0';
 
-		if (access(com, F_OK) == 0)
-			return (com);
-	}
-
+		if (access(com, F_OK) == 0) {
+            free(tok);  // Free the memory for tok before returning // Updated: Added memory deallocation
+            return (com);
+        }
+        free(com);  // Free the memory for com for this iteration
+    }
+	free(tok);
 	return (NULL);
 }
 
@@ -90,14 +99,14 @@ char *clean_end(char *str)
 		i--;
 	i += 1;
 
-    ans = malloc(sizeof(char) * (i + 1));
-    if (ans != NULL) {
-        _strncpy(ans, str, i);
-        ans[i] = '\0';
-    } else {
-        perror("Memory allocation failed in clean_end()");
+	ans = malloc(sizeof(char) * (i + 1));
+	if (ans != NULL) {
+		_strncpy(ans, str, i);
+		ans[i] = '\0';
+	} else {
+		perror("Memory allocation failed in clean_end()");
 		return (NULL);
-    }
+	}
 return ans;
 }
 
