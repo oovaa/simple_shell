@@ -38,26 +38,36 @@ int is_empty_or_whitespace(const char *str) {
 
 // Assume _getenv, _setenv, _strcmp are implemented elsewhere in your code
 int ma_cd(char **args) {
-    char *target_dir = args[1];
+    char *new_dir = args[1];
 
-    if (target_dir == NULL || is_empty_or_whitespace(target_dir)) {
-        // No argument provided, change to home directory
-        target_dir = _getenv("HOME");
-        if (target_dir == NULL) {
-            perror("./hsh: 1");
-            return 1;
-        }
-    } else if (_strcmp(target_dir, "-") == 0) {
-        // Change to the previous directory
-        target_dir = getenv("OLDPWD");
-        if (target_dir == NULL) {
-            perror("./hsh: 1");
+    if (new_dir == NULL) {
+        fprintf(stderr, "cd: Missing argument. Usage: cd DIRECTORY\n");
+        return 1;
+    }
+
+    char *cwd = getcwd(NULL, 0);
+
+    // Check if the new directory is different from the current one
+    if (_strcmp(new_dir, cwd) != 0) {
+        // Update OLDPWD only if the new directory is different
+        if (_setenv("OLDPWD", cwd, 1) != 0) {
+            perror("cd: Unable to update OLDPWD");
+            free(cwd);
             return 1;
         }
     }
 
-    if (chdir(target_dir) != 0) {
-        perror("./hsh: 1");
+    free(cwd);
+
+    // Change the current working directory
+    if (chdir(new_dir) != 0) {
+        perror("cd: Unable to change directory");
+        return 1;
+    }
+
+    // Update PWD with the new current working directory
+    if (_setenv("PWD", getcwd(NULL, 0), 1) != 0) {
+        perror("cd: Unable to update PWD");
         return 1;
     }
 

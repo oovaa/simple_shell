@@ -6,6 +6,7 @@
  * @del: what separate every array element in str
  * Return: the array of strings or null;
 */
+
 char **strtoarr(char *str, char sep) {
     int len = _strlen(str);
     int c = 0;
@@ -161,18 +162,20 @@ char *handle_hash(char *str) {
 
 char *clean(char *str)
 {
+    char *cleaned_str;
     if (str == NULL)
         return NULL;
 
-    str = handle_hash(str);
+    cleaned_str = handle_hash(str);
 
-    while (*str == ' ')
-        str++;
+    while (*cleaned_str == ' ')
+        cleaned_str++;
 
-    str = clean_end(str);
+    cleaned_str = clean_end(cleaned_str);
 
-    return str;
+    return cleaned_str;
 }
+
 
 /* 
 void pspace(char *str)

@@ -1067,3 +1067,330 @@ pwd
 ls
 clear
 cd /
+clear
+/bin/ls
+/bin/ls simple-shell-test-suite-master
+ls
+ls simple-shell-test-suite-master
+clear
+pwd
+ls
+ls simple-shell-test-suite-master
+/bin/ls simple-shell-test-suite-master
+clear
+/bin/ls
+ls
+clear
+/bin/ls -a
+clear
+/bin/ls
+/bin/ls simple-shell-test-suite-master
+clear
+ls
+ls simple-shell-test-suite-master
+clear
+ls simple-shell-test-suite-master
+clear
+ls
+ls simple-shell-test-suite-master
+ls simple-shell-test-suite-master
+ls
+exit
+clear
+ls
+clear
+ls
+ls simple-shell-test-suite-master
+ls simple-shell-test-suite-master
+exit
+ls
+clear
+ls
+ls
+ls
+ls
+clear
+ls 
+clear
+ls simple-shell-test-suite-master
+clear
+ls
+clear
+ls simple-shell-test-suite-master
+c;ear
+clear
+ls
+ks
+;s
+ls
+clear
+ks
+clear
+ls simple-shell-test-suite-master
+ls
+clear
+pwd
+ls
+ckear
+clear
+ls simple-shell-test-suite-master
+ls
+clear
+pwd
+exit
+clear
+ls
+pwd
+ls
+clear
+ls 
+ls simple-shell-test-suite-master
+ls
+ls simple-shell-test-suite-master
+ls
+ls         printf("Copied substring: %p\n", (void *)result[*count]);
+ls
+ls
+cd
+clear
+/bin/ls
+clear
+ls -a
+ls -l
+clear
+cowsay hi
+clear
+cowsay "hi there"
+clear
+cd
+ls
+clear
+pwd
+ls
+clear
+cd
+clear
+exit
+ls
+clear
+pwd
+cd
+pwd
+cd -
+;wd
+pwd
+cd -
+pwd
+cd
+pwd
+cd 
+pwd
+exit
+clear
+ls
+pwd
+clear
+cd
+clear
+ls
+pwd
+cd
+ls
+clear
+pwd
+cd /
+clear
+ls
+pwd
+clear
+cd /
+clear
+ls
+pwd
+clear
+cd /
+
+
+
+
+
+
+
+clear
+
+
+
+clear
+   
+        
+clear
+ls
+pwd
+ls
+cd 
+clear
+ls
+exit
+clear
+pwd
+clear
+ls
+cd
+clear
+ls
+clear
+ls
+pwd
+cd
+clear
+ls
+pwd
+cd
+ls
+pwd
+pwd
+ls
+clear
+ls
+pwd
+clear
+cd /
+cd
+pwd
+pwd
+pwd
+pwd
+pwd
+ls
+ls
+clear
+clear
+exit
+ls
+pwd
+clear
+ls
+pwd
+cd
+clear
+clear
+clear
+ls
+[wd
+pwd
+ls
+clear
+exit
+clear
+ls
+pwd
+ls
+clear
+ls
+pwd
+clear
+cleaf
+clear
+clear
+clear
+exit
+ls
+pwd
+clear
+lcsdc
+clear
+clear
+ls -la
+ls
+clear
+cdac
+clear
+ls
+exit
+ls
+clear
+cdacv
+ls
+exit
+cddcs
+ls
+ls
+clear
+ls -a
+ls
+pwd
+clear
+ls
+cd
+clear
+ls
+pwd
+clear
+cdsc
+ls
+clear
+exit
+clear
+clear
+clear
+exot
+exit
+clear
+ls
+pwd
+ls
+ls
+pwd
+ls
+pwd
+ls
+pwd
+clear
+ls
+ls
+ls
+pwd
+clear
+exit
+exit
+ls
+
+ls
+exit
+ls
+pwd
+clear
+cd
+ls
+clear
+pwd
+asd
+pwd
+clear
+exit
+ls
+clear
+ls -a
+clear
+ls
+cd
+pwd
+ls /
+pwd
+cd ..
+clear
+pwd
+ls
+ls simple-shell-test-suite-master
+clear
+cacm
+ls
+pwd
+clear
+exit
+
+
+
+
+clear
+exit

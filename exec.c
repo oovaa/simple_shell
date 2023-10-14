@@ -64,53 +64,27 @@ func check_built_ins(char *ch)
 
 int exebi(func f, char **arr)
 {
-	int re = f(arr);
-
+    int re;
+    
+ 	re = f(arr);
 	return (re);
 }
 
+int exe(char *com, char **arr) {
+    int id;
+    func f;
 
+    f = check_built_ins(arr[0]);
+    if (f != NULL)
+        return exebi(f, arr);
 
-int exe(char *com, char **arr)
-{
-	int id;
-	func f;
-
-	f = check_built_ins(arr[0]);
-	if (f != NULL)
-		return (exebi(f, arr));
-
-    if (_strcmp(arr[0], "exit") == 0)
-    {
-        // Call the exit function directly
-        ma_exit(arr);
+    if (access(com, F_OK) != 0) {
+        fprintf(stderr ,"%s: not found\n", arr[0]);
+        return 127;  // Standard shell error code for command not found
     }
 
-	// printf("%s %s c= %s\n", arr[0], arr[1], com);
-
-    if (access(com, F_OK) != 0)
-    {
-        eputs(arr[0]);
-        eputs(": not found\n");
-        free(com);
-        return (6);
-    }
-	
-	arr[0] = com;
-
-	id = fork();
-
-	if (id == 0)
-	{
-		execve(com, arr, environ);
-		perror("exe error: No such file or directory\n");
-		return (2);
-	}
-	else
-	{
-		wait(NULL);
-		return (0);
-	}
+    proc(arr);
+    return 0;
 }
 
 

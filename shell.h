@@ -10,11 +10,14 @@
 #include <sys/wait.h>
 #include <stdio.h>
 #include <signal.h>
+#include <string.h>
 
 
 extern char **environ;
 typedef int (*func)(char **args);
 
+/* process */
+int proc(char **args);
 
 
 /* err.c */
@@ -63,6 +66,7 @@ void replace_variables(char *command, int status);
 char *_memcpy(char *dest, char *src, unsigned int n);
 char *_memset(char *s, char b, unsigned int n);
 void rev_string(char *s);
+void free_strarr(char **arr);
 
 
 
