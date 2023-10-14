@@ -17,6 +17,13 @@ typedef int (*func)(char **args);
 
 
 
+/* err.c */
+int eputs(char *str);
+int eputchar(char c);
+
+
+
+
 /* exec */
 int exe(char *com, char **arr);
 int exebi(func f, char **arr);

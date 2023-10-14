@@ -6,45 +6,77 @@
  * @del: what separate every array element in str
  * Return: the array of strings or null;
 */
+char **strtoarr(char *str, char sep) {
+    int len = _strlen(str);
+    int c = 0;
+    int *count = &c;
+    int i = 0;
 
-char **strtoarr(char *str, char del)
-{
-	int i = 0;
-	char **arr, *tok = NULL;
-	int count, singlestrlen = 0;
+    // Count the number of substrings
+    while (i < len) {
+        // Skip leading separators
+        while (i < len && str[i] == sep)
+            i++;
 
+        if (i == len) {
+            // If we reached the end of the string, break
+            break;
+        }
 
-	/* str[_strcspn(str, '\n')] = '\0'; */
-	count = countchinstr(str, del) + 1;
+        // Move to the end of the current segment
+        while (i < len && str[i] != sep)
+            i++;
 
-	arr = malloc(sizeof(char *) * (count + 1));
+        // Count the start of a new segment
+        (*count)++;
+    }
 
-	for (i = 0; singlestrlen != -1 ; i++)
-	{
-	 singlestrlen = getIdx(str, del);
-		 if (singlestrlen != -1)
-		 {
-			 tok = malloc(sizeof(char) * (singlestrlen + 1));
-			 if (tok == NULL) {
-				perror("malloc failed");
-				free(arr);  // Free the previously allocated memory
-				return NULL;
-			}
+    // Allocate an array to contain the substrings
+    char **result = (char **)malloc(sizeof(char *) * (*count + 1));
+    if (result == NULL) {
+        perror("malloc failed");
+        exit(EXIT_FAILURE);
+    }
 
-			 _strncpy(tok, str, singlestrlen);
-			 str += singlestrlen + 1;
-		 }
-		 else
-		 {
-			 tok = _strdup(str);
-		 }
-			 arr[i] = tok;
-	}
-			arr[i] = NULL;
+    // Reset count for substring indexing
+    *count = 0;
+    i = 0;
 
-	return (arr);
+    // Populate the array with substrings
+    while (i < len) {
+        // Skip leading separators
+        while (i < len && str[i] == sep)
+            i++;
+
+        if (i == len) {
+            // If we reached the end of the string, break
+            break;
+        }
+
+        // Find the end of the current segment
+        int start = i;
+        while (i < len && str[i] != sep)
+            i++;
+
+        // Allocate memory for the substring
+        result[*count] = (char *)malloc(i - start + 1);
+        if (result[*count] == NULL) {
+            perror("malloc failed");
+            exit(EXIT_FAILURE);
+        }
+
+        // Copy the substring into the array
+        _strncpy(result[*count], str + start, i - start);
+
+        // Move to the next substring
+        (*count)++;
+    }
+
+    // Set the last pointer to NULL
+    result[*count] = NULL;
+
+    return result;
 }
-
 
 
 /**
@@ -112,28 +144,34 @@ return ans;
 
 char *handle_hash(char *str)
 {
-	char *ans;
-	int i;
+    char *ans;
+    int i;
 
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == '#')
-		{
-			break;
-		}
-		i++;
-	}
- ans = malloc(sizeof(char) * (i + 1));
-	if (ans != NULL) {
-		_strncpy(ans, str, i);
-	} else
-	{
-		perror("Memory allocation failed in handle_hash()");
-		return(NULL);
-	}
-	return (ans);
+    i = 0;
+    while (str[i])
+    {
+        if (str[i] == '#')
+        {
+            break;
+        }
+        i++;
+    }
+
+    // If no '#' character found, use the length of the entire string
+    if (i == _strlen(str)) {
+		return (str);
+    }
+
+    ans = malloc(sizeof(char) * (i + 1));
+    if (ans != NULL) {
+        _strncpy(ans, str, i);
+    } else {
+        perror("Memory allocation failed in handle_hash()");
+        return (NULL);
+    }
+    return (ans);
 }
+
 
 
 char *clean(char *str)

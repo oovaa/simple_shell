@@ -86,11 +86,13 @@ int exe(char *com, char **arr)
         ma_exit(arr);
     }
 
-	printf("%s %s c= %s\n", arr[0], arr[1], com);
+	// printf("%s %s c= %s\n", arr[0], arr[1], com);
 
     if (access(com, F_OK) != 0)
     {
-        perror("command error: No such file or directory");
+        eputs(arr[0]);
+        eputs(": not found\n");
+        free(com);
         return (6);
     }
 	

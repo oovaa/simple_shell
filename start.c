@@ -6,7 +6,10 @@
  *
 */
 
-int main(void)
+
+
+
+int main(int argc, char **argv)
 {
 	char *comand = NULL;
 	char **tokcom = NULL;
@@ -15,6 +18,8 @@ int main(void)
 	int re = 0;
 
 	(void)i;
+	(void)argc;
+	_setenv("mash", argv[0], 1);
 
 while (1)
 {
