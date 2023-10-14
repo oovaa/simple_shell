@@ -123,70 +123,98 @@ char *look_in_path(char *str)
 
 char *clean_end(char *str)
 {
-	int i;
-	char *ans;
+    int i = _strlen(str) - 1;
 
-	i = _strlen(str) - 1;
-	while (i >= 0 && str[i] == ' ')
-		i--;
-	i += 1;
+    while (i >= 0 && str[i] == ' ')
+        i--;
 
-	ans = malloc(sizeof(char) * (i + 1));
-	if (ans != NULL) {
-		_strncpy(ans, str, i);
-		ans[i] = '\0';
-	} else {
-		perror("Memory allocation failed in clean_end()");
-		return (NULL);
-	}
-return ans;
+    // If the string consists only of spaces
+    if (i < 0) {
+        str[0] = '\0';
+    } else {
+        // Place null terminator at the right position
+        str[i + 1] = '\0';
+    }
+
+    return str;
 }
 
-char *handle_hash(char *str)
-{
-    char *ans;
-    int i;
+char *handle_hash(char *str) {
+    int i = 0;
 
-    i = 0;
-    while (str[i])
-    {
-        if (str[i] == '#')
-        {
-            break;
-        }
+    // Find the '#' character
+    while (str[i] && str[i] != '#') {
         i++;
     }
 
-    // If no '#' character found, use the length of the entire string
-    if (i == _strlen(str)) {
-		return (str);
+    // If no '#' character found, return the original string
+    if (str[i] == '\0') {
+        return str;
     }
 
-    ans = malloc(sizeof(char) * (i + 1));
-    if (ans != NULL) {
-        _strncpy(ans, str, i);
-    } else {
-        perror("Memory allocation failed in handle_hash()");
-        return (NULL);
-    }
-    return (ans);
+    // Set null terminator at the '#' character
+    str[i] = '\0';
+
+    return str;
 }
-
 
 
 char *clean(char *str)
 {
+    if (str == NULL)
+        return NULL;
 
-	if (str == NULL)
-		return NULL;
+    str = handle_hash(str);
 
-	str = handle_hash(str);
-	
-	while (*str == ' ')
-		str++;
-		
-	str = clean_end(str);
+    while (*str == ' ')
+        str++;
 
-	return (str);
+    str = clean_end(str);
+
+    return str;
 }
 
+/* 
+void pspace(char *str)
+{
+    int i = 0;
+
+    while (str[i])
+    {
+        if (str[i] == ' ')
+            putchar('>');
+        else
+            putchar(str[i]);
+        
+        i++;
+    }
+ putchar('\n');   
+}
+
+int main(void)
+{
+    char str1[] = "   Hello   ";
+    char str2[] = "   Spaces     ";
+    char str3[] = "NoSpaces";
+    char str4[] = "   ";
+    char str5[] = "";
+
+    printf("Cleaned:  %s>\n", clean_end(str1));
+    pspace(str1);
+
+    printf("Cleaned:  %s>\n", clean_end(str2));
+    pspace(str2);
+
+    printf("Cleaned:  %s>\n", clean_end(str3));
+    pspace(str3);
+
+    printf("Cleaned:  %s>\n", clean_end(str4));
+    pspace(str4);
+
+    printf("Cleaned:  %s>\n", clean_end(str5));
+    pspace(str5);
+
+
+    return 0;
+}
+ */
