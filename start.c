@@ -6,38 +6,56 @@
  *
  */
 
-int main(void) {
-    char *command = NULL; 
-    char **tokcom = NULL; 
-    size_t line = 0; 
-    int re = 0; 
-    char *path_command;
-    _setenv("mash", _getenv("SHELL"), 1); 
+int main(int argc, char **argv) {
+	char *command = NULL;
+	char **tokcom = NULL;
+	size_t line = 0;
+	int re = 0;
+	char *path_command;
 
-    while (1) 
-    { 
-        _puts("$ "); 
-        getline(&command, &line, stdin); 
+	if (argc >= 2) {
+		// Non-interactive mode
+		printf("%s\n", argv[1]);
+		tokcom = strtoarr(argv[1], ' ');
 
-        append_text_to_file("history.txt", command); 
+		if (tokcom != NULL) {
+			path_command = look_in_path(tokcom[0]);
+			re = exe(path_command, tokcom);
 
-        command[_strcspn(command, '\n')] = '\0'; 
+			// Free allocated memory
+			free(path_command);
+			free_strarr(tokcom);
 
-        replace_variables(command, re); 
+			return re;
+		} else {
+			fprintf(stderr, "Error: Unable to parse command\n");
+			return 1;
+		}
+	}
 
-        command = clean(command); 
+	while (1) {
+		_puts("$ ");
+		getline(&command, &line, stdin);
 
-        if (command[0] == '\0') 
-            continue; 
+		append_text_to_file("history.txt", command);
 
-        tokcom = strtoarr(command, ' '); 
+		command[_strcspn(command, '\n')] = '\0';
 
-        path_command = look_in_path(tokcom[0]); 
+		replace_variables(command, re);
 
-        re = exe(path_command, tokcom); 
-    } 
-    free(command);
-    free(path_command);
-    free_strarr(tokcom);
-    return re; 
+		command = clean(command);
+
+		if (command[0] == '\0')
+			continue;
+
+		tokcom = strtoarr(command, ' ');
+
+		path_command = look_in_path(tokcom[0]);
+
+		re = exe(path_command, tokcom);
+	}
+	free(command);
+	free(path_command);
+	free_strarr(tokcom);
+	return re;
 }
