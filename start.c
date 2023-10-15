@@ -7,10 +7,12 @@
  */
 
 int main(int argc, char **argv) {
-	if (argc > 1) {
-		// Non-interactive mode
-		return non_interactive_mode(argc, argv);
-	} else if (argc == 1) {
+    if (isatty(STDIN_FILENO))
+	{
 		return interactive_mode();
+	}
+	else
+	{
+		return non_interactive_mode(argc, argv);
 	}
 }

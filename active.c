@@ -6,26 +6,39 @@ int non_interactive_mode(int argc, char **argv) {
         return 1;
     }
 
-    char **tokcom = strtoarr(argv[1], ' ');
-    if (tokcom == NULL) {
-        fprintf(stderr, "Error: Unable to parse command\n");
-        return 1;
+    char **tokcom;
+    char *path_command;
+
+    if (argc == 2) {
+        // If the command is passed directly in argv[1]
+        tokcom = strtoarr(argv[1], ' ');
+        path_command = look_in_path(tokcom[0]);
+    } else {
+        // If the command is already parsed in argv
+        tokcom = argv + 1;
+        path_command = look_in_path(tokcom[0]);
     }
 
-    char *path_command = look_in_path(tokcom[0]);
     if (path_command == NULL) {
         fprintf(stderr, "Error: Command not found in PATH\n");
-        free(tokcom);
+        if (argc == 2) {
+            free(tokcom);
+        }
         return 1;
     }
 
     int re = exe(path_command, tokcom);
 
-    free(tokcom);
+    if (argc == 2) {
+        free(tokcom);
+    }
+
     free(path_command);
 
     return re;
 }
+
+
 
 
 int interactive_mode() {

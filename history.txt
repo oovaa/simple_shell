@@ -1533,3 +1533,15 @@ ls
 clear
 pwd
 cd ..
+exit
+ls
+pwd
+clear
+exit
+exit
+exit
+exit
+exit
+exit
+exit
+exit
