@@ -27,9 +27,8 @@ int main(int argc, char **argv) {
 
 		command[_strcspn(command, '\n')] = '\0';
 
-		replace_variables(command, re);
-
 		command = clean(command);
+		replace_variables(command, re);
 
 		if (command[0] == '\0')
 			continue;

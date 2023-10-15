@@ -1579,3 +1579,34 @@ cd /
 cd /
 cd /
 cd
+/bin/ls
+/bin/ls
+/bin/pwd
+/bin/pwd
+/bin/pwd
+/bin/pwd
+/bin/pwd
+clear
+pwd
+clear
+cd 
+pwd
+clear
+ls
+clear
+echo $$
+echo $?
+asc
+echo $?
+clear
+env
+exit
+pwd
+exit
+exit
+setenv name omar
+exit
+clear
+ls
+pwd
+cd
