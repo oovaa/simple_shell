@@ -1570,4 +1570,12 @@ pwdpwdpwd
 pwdpwdpwd
 pwdpwdpwd
 pwdpwdpwd
-pwdpwd
+pwdpwdls
+pwd
+echo Hello > output.txt
+echo $PATH
+cd /
+cd /
+cd /
+cd /
+cd

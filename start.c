@@ -13,29 +13,15 @@ int main(int argc, char **argv) {
 	int re = 0;
 	char *path_command;
 
-	if (argc >= 2) {
-		// Non-interactive mode
-		printf("%s\n", argv[1]);
-		tokcom = strtoarr(argv[1], ' ');
-
-		if (tokcom != NULL) {
-			path_command = look_in_path(tokcom[0]);
-			re = exe(path_command, tokcom);
-
-			// Free allocated memory
-			free(path_command);
-			free_strarr(tokcom);
-
-			return re;
-		} else {
-			fprintf(stderr, "Error: Unable to parse command\n");
-			return 1;
-		}
-	}
-
 	while (1) {
 		_puts("$ ");
-		getline(&command, &line, stdin);
+		if (getline(&command, &line, stdin) == -1) {
+			// Handle end-of-file (CTRL+D) in non-interactive mode
+			if (isatty(STDIN_FILENO)) {
+				write(STDOUT_FILENO, "\n", 1);
+			}
+			return re;
+		}
 
 		append_text_to_file("history.txt", command);
 
