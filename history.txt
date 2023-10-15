@@ -1394,3 +1394,65 @@ exit
 
 clear
 exit
+clear
+ls
+pwd
+clear
+echo $$
+echo $?
+acdc
+echo $?
+clear
+setenv name omar
+unsetenv name
+setenv bane
+echo 
+clear
+exit
+clear
+cd
+pwd
+cd 
+cd /
+cd .
+cd /etc
+ls
+pwd
+cd ..
+ls
+clear
+cd /etc
+clear
+ls
+clear
+cd /etc
+ls
+clear
+cd /etc
+clear
+cd /etc
+clear
+ls
+clear
+ls -a simple-shell-test-suite-master
+exit 34
+ls
+clear
+pwd
+exit
+clear
+ls
+cd /etc
+env
+cd
+cd /etc
+pwd
+clea
+clear
+cd
+clear
+ls
+pwd
+clear
+pwd
+cd

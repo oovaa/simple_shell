@@ -1,37 +1,45 @@
 #include "shell.h"
 #include <stdarg.h>
 
-int eputchar(char c)
-{
-	return	(write(2, &c, 1));
+
+int eputchar(char c) { return (write(2, &c, 1)); }
+
+int eputs(char *str) { return write(STDERR_FILENO, str, _strlen(str)); }
+
+void srn_printerr(char *name, char *vampcmd, int indexno) {
+    char *index = intostr(indexno);
+
+    eputs(name);
+    eputs(": ");
+    eputs(index);
+    eputs(": ");
+    eputs(vampcmd);
+    eputs(": not found\n");
+
+    free(index);
 }
 
-int eputs(char *str) {
-    return write(2, str, _strlen(str));
+/*
+ * srn_intostr - function to change integer to string
+ * @wai: variable
+ * Return: NULL
+ */
+
+char *intostr(int wai) {
+    char buffy[50];
+    int v = 0;
+
+    if (wai == 0)
+      buffy[v++] = '0';
+
+    else {
+      while (wai > 0) {
+          buffy[v++] = (wai % 10) + '0';
+          wai /= 10;
+      }
+    }
+    buffy[v] = '\0';
+    rev_string(buffy);
+
+    return (_strdup(buffy));
 }
-
-int fulerr(char *com, int status)
-{
-    char *sh = _getenv("mash"); 
-    eputs(sh);
-    perror(": 1: ");
-    eputs(com);
-
-    // Return an appropriate exit code
-    return status;
-}
-
-
-
-/* int main(void) {
-    // Test eputs
-    eputs("This is an error message using eputs.\n");
-
-    // Test eputchar
-    eputchar('E');
-    eputchar('r');
-    eputchar('r');
-    eputchar('\n');
-
-    return 0;
-} */

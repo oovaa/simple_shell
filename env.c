@@ -142,6 +142,65 @@ char *_getenv(char *name)
 
 	return NULL;
 }
+
+/* 
+
+int main(void) {
+    char *name = "OMA";
+    char *value = "test_value1";
+
+    // Test 1: Set environment variable
+    printf("Test 1: Set environment variable\n");
+    if (_setenv(name, value, 1) == 0) {
+        printf("Environment variable set successfully!\n");
+    } else {
+        perror("Failed to set environment variable\n");
+    }
+
+    // Check the value using _getenv
+    char *result = _getenv(name);
+    if (result != NULL) {
+        printf("Value retrieved using _getenv: %s\n", result);
+    } else {
+        perror("Failed to retrieve value using _getenv\n");
+    }
+
+    // Test 2: Set environment variable with overwrite=0 (should not overwrite)
+    printf("\nTest 2: Set environment variable with overwrite=0\n");
+    if (_setenv(name, "new_value2", 1) == 0) {
+        printf("Environment variable set successfully!\n");
+    } else {
+        perror("Failed to set environment variable\n");
+    }
+
+    // Check the value using _getenv
+    result = _getenv(name);
+    if (result != NULL) {
+        printf("Value retrieved using _getenv: %s\n", result);
+    } else {
+        perror("Failed to retrieve value using _getenv\n");
+    }
+
+    // Test 3: Set environment variable with invalid arguments
+    printf("\nTest 3: Set environment variable with invalid arguments\n");
+    if (_setenv(NULL, value, 1) == 0) {
+        printf("Environment variable set successfully!\n");
+    } else {
+        perror("Failed to set environment variable");
+    }
+
+    // Check the value using _getenv
+    result = _getenv(name);
+    if (result != NULL) {
+        printf("Value retrieved using _getenv: %s\n", result);
+    } else {
+        perror("Failed to retrieve value using _getenv\n");
+    }
+
+    return 0;
+}
+ */
+
 /* 
 int main() {
 	// Test case 1: _setenv

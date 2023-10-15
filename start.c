@@ -7,8 +7,6 @@
 */
 
 
-
-
 int main(int argc, char **argv)
 {
 	char *comand = NULL;
@@ -42,6 +40,7 @@ int main(int argc, char **argv)
 		char *path_command = look_in_path(tokcom[0]);
 		
 		re = exe(path_command, tokcom);
+		printf("pass 5 %s\n", comand);
 
 	}
 	return (re);

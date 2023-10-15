@@ -5,10 +5,9 @@
  * @str: string to process
  * @regect: regected char
  * Return: last index of acceptet char
-*/
+ */
 
-int _strcspn(char *str, char regect)
-{
+int _strcspn(char *str, char regect) {
 	int i;
 
 	i = 0;
@@ -19,19 +18,15 @@ int _strcspn(char *str, char regect)
 	return (i);
 }
 
-
-
 /**
  * _strchr - function that locates a character in a string.
  * @s: the string containing the character
  * @c: the character
  * Return: a pointer to the first occurrence of the character c
-*/
+ */
 
-char *_strchr(char *s, char c)
-{
-	while (*s)
-	{
+char *_strchr(char *s, char c) {
+	while (*s) {
 		if (*s != c)
 			s++;
 		else
@@ -50,23 +45,19 @@ char *_strchr(char *s, char c)
  * @n: number of chars to compare
  *
  * Return: 0 if strings are the same 1 if not
-*/
+ */
 
-int _strncmp(char *s1, char *s2, int n)
-{
+int _strncmp(char *s1, char *s2, int n) {
 	int i;
 
-	for (i = 0; i < n; ++i)
-	{
+	for (i = 0; i < n; ++i) {
 		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);
 		else if (s1[i] == '\0' || s2[i] == '\0')
 			break;
 	}
 	return (0);
-
 }
-
 
 /**
  * _strdup - returns a pointer to a newly allocated space in memory,
@@ -74,46 +65,45 @@ int _strncmp(char *s1, char *s2, int n)
  * @str: the source string
  * Return: returns a pointer to the duplicated string.
  */
-char *_strdup(char *str)
-{
-int len, i;
-char *newstr;
+char *_strdup(char *str) {
+	int len, i;
+	char *newstr;
 
-if (str == NULL)
-return (NULL);
+	if (str == NULL)
+		return (NULL);
 
-len = _strlen(str);
-newstr = malloc(len *sizeof(char) + 1);
+	len = _strlen(str);
+	newstr = malloc(len * sizeof(char) + 1);
 
-if (newstr == NULL)
-return (NULL);
+	if (newstr == NULL) {
+		perror("malloc failed");
+		return NULL;
+	}
 
-for (i = 0; str[i] ; i++)
-newstr[i] = str[i];
+	if (newstr == NULL)
+		return (NULL);
 
-newstr[i] = '\0';
+	for (i = 0; str[i]; i++)
+		newstr[i] = str[i];
 
+	newstr[i] = '\0';
 
-return (newstr);
+	return (newstr);
 }
 
 /**
- * countchinstr - counts the number the char appeared in a string 
+ * countchinstr - counts the number the char appeared in a string
  * @str: string to look in
  * @ch: char to look for
- * Return: number the char appeared in a string  
-*/
+ * Return: number the char appeared in a string
+ */
 
-int countchinstr(char *str, char ch)
-{
-int i, n = 0;
+int countchinstr(char *str, char ch) {
+	int i, n = 0;
 
-for (i = 0; str[i]; i++)
-{
-	if (str[i] == ch)
-		++n;
-
+	for (i = 0; str[i]; i++) {
+		if (str[i] == ch)
+			++n;
+	}
+	return (n);
 }
-return (n);
-}
-
