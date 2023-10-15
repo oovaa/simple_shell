@@ -1456,3 +1456,80 @@ pwd
 clear
 pwd
 cd
+ls
+pwd
+clear
+sh
+exit
+clear
+pwd
+pwd
+adca
+pwd
+clea
+clear
+ls
+echo #?
+echo $$
+clear
+echo $?
+acd'l[A
+echo $?
+clear
+exit 34
+/bin/ls
+/bin/ls/bin/ls/bin/ls
+/bin/ls/bin/lspwd
+pwdpwdpwd
+pwdpwdls
+lslsls
+lslsls
+lslsls
+lslsexit
+ls
+lslsls
+lslsls
+lslsexit
+ls
+lslspwd
+pwdpwdenv
+envenvenvpwd
+pwdpwdpwd
+pwdpwdpwd
+pwdpwdpwd
+pwdpwdpwd
+pwdpwdclear
+pwd
+echo what is wrong
+clear
+cd
+cd
+cd 
+clear
+cd /etc
+cd etc
+clear
+cd ..
+clear
+pwd
+ls -a
+cd ..
+ls
+pwd
+cd ..
+cd
+pwd
+cd
+cd
+cd
+exit
+cd
+cd
+cd
+cd
+cd
+clear
+ls
+clear
+pwd
+cd ..

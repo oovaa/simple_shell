@@ -16,6 +16,11 @@
 extern char **environ;
 typedef int (*func)(char **args);
 
+/* active */
+int interactive_mode();
+int non_interactive_mode(int argc, char **argv);
+
+
 /* process */
 int proc(char **args);
 

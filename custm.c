@@ -33,16 +33,13 @@ int is_empty_or_whitespace(const char *str) {
  * ma_cd - Changes the current directory of the process
  * @args: target
  *
- * Return: 1 (Sucess). Otherwise 0.
+ * Return: 0 (Sucess). Otherwise 1.
 */
 
-// Assume _getenv, _setenv, _strcmp are implemented elsewhere in your code
 int ma_cd(char **args) {
     char *new_dir = args[1];
-	char *cwd_before;
 
-    if (new_dir == NULL) {
-        // If no argument is provided, change to the HOME directory
+    if (new_dir == NULL || *new_dir == '\0') {
         new_dir = _getenv("HOME");
 
         if (new_dir == NULL) {
@@ -51,21 +48,11 @@ int ma_cd(char **args) {
         }
     }
 
-	cwd_before = getcwd(NULL, 0);
-
-	
 	if (chdir(new_dir) != 0)
 	{
         perror("cd");
-		free(cwd_before);
         return 1;
 	}
-
-    _setenv("PWD", cwd_before, 1); // here is the bug
-    // _setenv("OLDPWD", cwd_before, 1);
-
-	free(new_dir);
-	free(cwd_before);
 
     return 0;
 }
