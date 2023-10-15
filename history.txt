@@ -1545,3 +1545,17 @@ exit
 exit
 exit
 exit
+clear
+ls
+pwd
+hshs
+cd
+clear
+ls
+pwd
+clear
+clear
+clear
+ls
+pwd
+cd
