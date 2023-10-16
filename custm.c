@@ -41,11 +41,11 @@ int is_empty_or_whitespace(const char *str)
 	{
 		if (*str != ' ' && *str != '\t' && *str != '\n' && *str != '\r')
 		{
-			return (0); // Not empty or whitespace
+			return (0);
 		}
 		str++;
 	}
-	return (1); // Empty or whitespace
+	return (1);
 }
 
 /**
@@ -99,6 +99,8 @@ int ma_cd(char **args)
 int ma_env(char **args)
 {
 	int i = 0;
+
+(void)args;
 
 	while (environ[i])
 	{

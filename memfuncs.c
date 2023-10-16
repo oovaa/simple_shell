@@ -64,9 +64,19 @@ void rev_string(char *s)
 	}
 }
 
+/**
+ * free_strarr - Frees a dynamically allocated array of strings
+ * @arr: The array of strings to be freed
+ *
+ * This function frees each individual string in the array and then frees
+ * the array itself.
+ */
+
 void free_strarr(char **arr)
 {
-	for (int i = 0; arr[i] != NULL; i++)
+	int i;
+
+	for (i = 0; arr[i] != NULL; i++)
 	{
 		free(arr[i]);
 	}

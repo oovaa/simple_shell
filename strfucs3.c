@@ -7,7 +7,8 @@
  * Return: last index of acceptet char
  */
 
-int _strcspn(char *str, char regect) {
+int _strcspn(char *str, char regect)
+{
 	int i;
 
 	i = 0;
@@ -25,8 +26,10 @@ int _strcspn(char *str, char regect) {
  * Return: a pointer to the first occurrence of the character c
  */
 
-char *_strchr(char *s, char c) {
-	while (*s) {
+char *_strchr(char *s, char c)
+{
+	while (*s)
+	{
 		if (*s != c)
 			s++;
 		else
@@ -47,10 +50,12 @@ char *_strchr(char *s, char c) {
  * Return: 0 if strings are the same 1 if not
  */
 
-int _strncmp(char *s1, char *s2, int n) {
+int _strncmp(char *s1, char *s2, int n)
+{
 	int i;
 
-	for (i = 0; i < n; ++i) {
+	for (i = 0; i < n; ++i)
+	{
 		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);
 		else if (s1[i] == '\0' || s2[i] == '\0')
@@ -65,7 +70,8 @@ int _strncmp(char *s1, char *s2, int n) {
  * @str: the source string
  * Return: returns a pointer to the duplicated string.
  */
-char *_strdup(char *str) {
+char *_strdup(char *str)
+{
 	int len, i;
 	char *newstr;
 
@@ -75,9 +81,10 @@ char *_strdup(char *str) {
 	len = _strlen(str);
 	newstr = malloc(len * sizeof(char) + 1);
 
-	if (newstr == NULL) {
+	if (newstr == NULL)
+	{
 		perror("malloc failed");
-		return NULL;
+		return (NULL);
 	}
 
 	for (i = 0; str[i]; i++)
@@ -95,10 +102,12 @@ char *_strdup(char *str) {
  * Return: number the char appeared in a string
  */
 
-int countchinstr(char *str, char ch) {
+int countchinstr(char *str, char ch)
+{
 	int i, n = 0;
 
-	for (i = 0; str[i]; i++) {
+	for (i = 0; str[i]; i++)
+	{
 		if (str[i] == ch)
 			++n;
 	}

@@ -2,8 +2,6 @@
 
 /**
  * main - Entry point for the program.
- * @argc: The number of command-line arguments.
- * @argv: An array of strings containing the command-line arguments.
  *
  * Description:
  * This is the main function that serves as the entry point for the program.
@@ -14,13 +12,10 @@
  * Usage:
  *  ./program_name argument1 argument2
  *
- * @argc: The number of command-line arguments.
- * @argv: An array of strings containing the command-line arguments.
- *
  * Return: The exit status of the program.
  */
 
-int main(int argc, char **argv)
+int main(void)
 {
 	char *command = NULL;
 	char **tokcom = NULL;

@@ -46,26 +46,31 @@ return (num * sign);
  * Return: printer to the concatenated string
  */
 
-char *_strcat(char *dest, char *src) {
-    if (dest == NULL || src == NULL) {
-        perror("./hsh: 1");
-        return NULL;
-    }
+char *_strcat(char *dest, char *src)
+{
+	int i = 0;
+	int j = 0;
 
-    int i = 0;
-    while (dest[i] != '\0') {
-        i++;
-    }
+	if (dest == NULL || src == NULL)
+	{
+		perror("./hsh: 1");
+		return (NULL);
+	}
 
-    int j = 0;
-    while (src[j] != '\0') {
-        dest[i + j] = src[j];
-        j++;
-    }
+	while (dest[i] != '\0')
+	{
+		i++;
+	}
 
-    dest[i + j] = '\0';
+	while (src[j] != '\0')
+	{
+		dest[i + j] = src[j];
+		j++;
+	}
 
-    return dest;
+	dest[i + j] = '\0';
+
+	return (dest);
 }
 
 

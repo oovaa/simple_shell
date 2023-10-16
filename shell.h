@@ -18,6 +18,9 @@ typedef int (*func)(char **args);
 
 /* process */
 int proc(char **args);
+void count_substrings(char *str, char sep, int *count);
+void populate_substrings(char *str, char sep, char **result, int count);
+char **strtoarr(char *str, char sep);
 
 
 /* err.c */
@@ -25,7 +28,6 @@ int eputs(char *str);
 int eputchar(char c);
 void printerr(char *command, int indexno);
 char *intostr(int wai);
-
 
 
 
@@ -76,12 +78,14 @@ void free_strarr(char **arr);
 ssize_t read_textfile(const char *filename, size_t letters);
 int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
+char *gpath();
 
 
 /* env */
+int _setenv_new(char *name, char *value);
 int _setenv(char *name, char *value, int overwrite);
+int _setenv_existing(char *name, char *value, char *fullvar, int overwrite);
 int _unsetenv(char *name);
-char *gpath();
 char *_getenv(char *name);
 
 /* custm */
@@ -99,12 +103,21 @@ char *clean(char *str);
 char *clean_end(char *str);
 char *handle_hash(char *str);
 
-
-typedef struct 
+/**
+ * struct built_ins - Struct to represent a built-in command
+ * @name: The name of the built-in command
+ * @f: Pointer to the function implementing the built-in command
+ *
+ * Description:
+ * This structure is used to represent a built-in command in the shell.
+ * It contains the name of the command and a function pointer to the
+ * corresponding implementation.
+ */
+typedef struct
 {
 	char *name;
 	int (*f)(char **args);
 
-}built_ins;
+} built_ins;
 
 #endif

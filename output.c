@@ -8,15 +8,18 @@
  */
 int _putchar(char c)
 {
-    return write(1, &c, 1);
+	return (write(1, &c, 1));
 }
 /**
  * _puts - prints a string, followed by a new line, to stdout.
  *@str: the string
+ * Return: number of printed bytes.
  */
 
-int _puts(char *str) {
+int _puts(char *str)
+{
 	int i;
+
 	i = 0;
 	while (str[i])
 		_putchar(str[i++]);
@@ -25,23 +28,26 @@ int _puts(char *str) {
 }
 
 /**
- * getIdx - Returns the index of the first occurrence of character c in string str.
+ * getIdx - Returns the index of the first
+ *  occurrence of character c in string str.
  * @str: The string to search.
  * @c: The character to find.
  *
  * Return: The index of the first occurrence of c, or -1 if not found.
  */
 
-int getIdx(char *str, char c) {
+int getIdx(char *str, char c)
+{
 	int i = 0;
 
-	while (str[i] != '\0') {
+	while (str[i] != '\0')
+	{
 		if (str[i] == c)
-			return i;
+			return (i);
 		i++;
 	}
 
-	return -1;
+	return (-1);
 }
 
 
@@ -51,13 +57,14 @@ int getIdx(char *str, char c) {
  * @status: The exit status of the last command.
  */
 
-void replace_variables(char *command, int status) {
+void replace_variables(char *command, int status)
+{
 	char *ptr;
 	char buffer[1024];
 	int pid = getpid();
 
-	// Replace $$ with the process ID
-	while ((ptr = _strstr(command, "$$")) != NULL) {
+	while ((ptr = _strstr(command, "$$")) != NULL)
+	{
 		*ptr = '\0';
 		_strcpy(buffer, command);
 		_int_to_str(pid, buffer + _strlen(buffer));
@@ -65,8 +72,8 @@ void replace_variables(char *command, int status) {
 		_strcpy(command, buffer);
 	}
 
-	// Replace $? with the exit status of the last command
-	while ((ptr = _strstr(command, "$?")) != NULL) {
+	while ((ptr = _strstr(command, "$?")) != NULL)
+	{
 		*ptr = '\0';
 		_strcpy(buffer, command);
 		_int_to_str(status, buffer + _strlen(buffer));
