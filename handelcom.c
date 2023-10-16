@@ -88,7 +88,7 @@ char **strtoarr(char *str, char sep) {
     // Allocate an array to contain the substrings
     char **result = (char **)malloc(sizeof(char *) * (count + 1));
     if (result == NULL) {
-        perror("malloc failed");
+        printerr("malloc", 1);
         exit(EXIT_FAILURE);
     }
 
@@ -113,18 +113,16 @@ char *look_in_path(char *str)
 	if (access(str, F_OK) == 0)
 	return (str);
 
-
 	tok = strtoarr(path, ':');
 	for (i = 0; tok[i]; i++)
 	{
 		com = malloc(_strlen(tok[i]) + _strlen(str) + 2);
 		if (com == NULL)
 		{
-			perror("malloc failed");
+			printerr("malloc", 1);
 			free(tok);  // Free the previously allocated memory // Updated: Added memory deallocation
 			return (NULL);
 		}
-
 		_strcpy(com, tok[i]);
 		_strcat(com, "/");
 		_strcat(com, str);
