@@ -6,6 +6,7 @@
  *
  */
 
+
 int main(int argc, char **argv) {
 	char *command = NULL;
 	char **tokcom = NULL;
@@ -17,16 +18,16 @@ int main(int argc, char **argv) {
 		_puts("$ ");
 		if (getline(&command, &line, stdin) == -1) {
 			// Handle end-of-file (CTRL+D) in non-interactive mode
-			if (isatty(STDIN_FILENO)) {
+			if (isatty(STDIN_FILENO))
+			{
 				write(STDOUT_FILENO, "\n", 1);
 			}
+			free(command);
+			free(path_command);  
 			return re;
 		}
 
 		append_text_to_file("history.txt", command);
-
-		command[_strcspn(command, '\n')] = '\0';
-
 		command = clean(command);
 		replace_variables(command, re);
 
@@ -41,11 +42,11 @@ int main(int argc, char **argv) {
 
 		if (re != 0)
 		{
-            printerr(tokcom[0], 1);  // Assuming index 1 for simplicity
-        }
-	}
-	free(command);
-	free(path_command);
+			printerr(tokcom[0], 1);  // Assuming index 1 for simplicity
+		}
+    }
+    if (command != NULL) 
+        free(command);
 	free_strarr(tokcom);
 	return re;
 }

@@ -16,13 +16,13 @@ int proc(char **args)
 	{
 		if (execvp(args[0], args) == -1)
 		{
-			perror("execvp error");
+			printerr("execvp", 1);
 		}
 		exit(EXIT_FAILURE);
 	}
 	else if (pid < 0)
 	{
-		perror("Forking error");
+			printerr("fork", 1);
 	}
 	else
 	{

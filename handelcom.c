@@ -196,6 +196,9 @@ char *handle_hash(char *str) {
 char *clean(char *str)
 {
     char *cleaned_str;
+
+	str[_strcspn(str, '\n')] = '\0';
+
     if (str == NULL)
         return NULL;
 

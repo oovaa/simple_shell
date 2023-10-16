@@ -37,31 +37,31 @@ int is_empty_or_whitespace(const char *str) {
 */
 
 int ma_cd(char **args) {
-    char *new_dir = args[1];
+	char *new_dir = args[1];
 
-    if (new_dir == NULL || *new_dir == '\0') {
-        new_dir = _getenv("HOME");
+	if (new_dir == NULL || *new_dir == '\0') {
+		new_dir = _getenv("HOME");
 
-        if (new_dir == NULL) {
-            printerr("cd", 1);
-            return 1;
-        }
-    }
+		if (new_dir == NULL) {
+			printerr("cd", 1);
+			return 1;
+		}
+	}
 
 	if (chdir(new_dir) != 0)
 	{
-        printerr("cd", 1);
-        return 1;
+		printerr("cd", 1);
+		return 1;
 	}
 
-    return 0;
+	return 0;
 }
 
 int ma_env(char **args) {
 	int i = 0;
 	while (environ[i]) {
 		if (_puts(environ[i]) == -1 || _putchar('\n') == -1) {
-            printerr("ma_env", 1);
+			printerr("ma_env", 1);
 			return -1;
 		}
 		i++;
@@ -90,7 +90,7 @@ void _int_to_str(int num, char *str) {
 	rev_string(str);
 }
 
-/* 
+/*
 int main(void) {
 	// Print the current working directory before cd
 	char *before_cd = getcwd(NULL, 0);
@@ -122,7 +122,7 @@ int main(void) {
 }
 
  */
-/* 
+/*
 int main() {
 	char *cd_args_empty[] = {"cd", "-", NULL};
 	char *cd_args_home[] = {"cd", NULL};

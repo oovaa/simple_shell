@@ -64,9 +64,11 @@ void rev_string(char *s)
 	}
 }
 
-void free_strarr(char **arr) {
-    for (int i = 0; arr[i] != NULL; i++) {
-        free(arr[i]);
-    }
-    free(arr);
+void free_strarr(char **arr)
+{
+	for (int i = 0; arr[i] != NULL; i++)
+	{
+		free(arr[i]);
+	}
+	free(arr);
 }

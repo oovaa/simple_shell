@@ -1701,3 +1701,37 @@ cd
 exit
 exit
 ls
+ls
+clear
+ls
+[wd
+ped
+pwd
+clear
+cd
+clear
+ls
+pwd
+cad
+clear
+cd
+clear
+ls
+pwd
+hshs
+csac
+cd
+clear
+pwd
+cd
+clear
+pwd
+ls
+cd
+echo o#mar
+clear
+echo $$
+echo $?
+clear
+exit
+/bin/ls
