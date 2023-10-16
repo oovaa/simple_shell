@@ -18,61 +18,123 @@ int ma_exit(char **args)
 	}
 }
 
+/**
+ * is_empty_or_whitespace - Checks if a string is empty
+ * or consists only of whitespace characters.
+ * @str: The input string to be checked.
+ *
+ * Return: 1 if the string is empty or consists only of
+ * whitespace characters, 0 otherwise.
+ *
+ * Description:
+ * This function examines a string and determines if it
+ *  is empty (i.e., a NULL pointer or an
+ * empty string) or if it consists only of whitespace
+ * characters (spaces, tabs, and newline).
+ * Returns 1 if the string is empty or consists only of
+ * whitespace characters, and 0 otherwise.
+ */
 
-int is_empty_or_whitespace(const char *str) {
-	while (*str) {
-		if (*str != ' ' && *str != '\t' && *str != '\n' && *str != '\r') {
-			return 0; // Not empty or whitespace
+int is_empty_or_whitespace(const char *str)
+{
+	while (*str)
+	{
+		if (*str != ' ' && *str != '\t' && *str != '\n' && *str != '\r')
+		{
+			return (0); // Not empty or whitespace
 		}
 		str++;
 	}
-	return 1; // Empty or whitespace
+	return (1); // Empty or whitespace
 }
 
-/*
+/**
  * ma_cd - Changes the current directory of the process
  * @args: target
  *
  * Return: 0 (Sucess). Otherwise 1.
 */
 
-int ma_cd(char **args) {
+int ma_cd(char **args)
+{
 	char *new_dir = args[1];
 
-	if (new_dir == NULL || *new_dir == '\0') {
+	if (new_dir == NULL || *new_dir == '\0')
+	{
 		new_dir = _getenv("HOME");
 
-		if (new_dir == NULL) {
+		if (new_dir == NULL)
+		{
 			printerr("cd", 1);
-			return 1;
+			return (1);
 		}
 	}
 
 	if (chdir(new_dir) != 0)
 	{
 		printerr("cd", 1);
-		return 1;
+		return (1);
 	}
 
-	return 0;
+	return (0);
 }
 
-int ma_env(char **args) {
+/**
+ * ma_env - Implements the built-in command 'env'.
+ * @args: Array of command arguments.
+ *
+ * Return: 0 on success, -1 on failure.
+ *
+ * Description:
+ * This function is the implementation of the 'env' built-in command.
+ * It prints the current environment variables to the standard output.
+ *
+ * Usage:
+ *  ma_env(args);
+ *
+ * Return Value:
+ *  Returns 0 on success and -1 on failure.
+ */
+
+int ma_env(char **args)
+{
 	int i = 0;
-	while (environ[i]) {
-		if (_puts(environ[i]) == -1 || _putchar('\n') == -1) {
+
+	while (environ[i])
+	{
+		if (_puts(environ[i]) == -1 || _putchar('\n') == -1)
+		{
 			printerr("ma_env", 1);
-			return -1;
+			return (-1);
 		}
 		i++;
 	}
-	return 0;
+	return (0);
 }
 
-void _int_to_str(int num, char *str) {
+/**
+ * _int_to_str - Converts an integer to a string.
+ * @num: The integer to convert.
+ * @str: A buffer to store the resulting string.
+ *
+ * Description:
+ * This function converts an integer to its string representation and stores
+ * it in the provided buffer. It also handles negative numbers and uses the
+ * helper function 'rev_string' to reverse the resulting string.
+ *
+ * Usage:
+ *  _int_to_str(42, buffer);
+ *
+ * @num: The integer to be converted.
+ * @str: A buffer to store the resulting string.
+ */
+
+void _int_to_str(int num, char *str)
+{
 	int i = 0, sign = 0;
 
-	if (num < 0) {
+	if (num < 0)
+	{
 		sign = 1;
 		num = -num;
 	}
@@ -82,105 +144,11 @@ void _int_to_str(int num, char *str) {
 		num /= 10;
 	} while (num > 0);
 
-	if (sign) {
+	if (sign)
+	{
 		str[i++] = '-';
 	}
 
 	str[i] = '\0';
 	rev_string(str);
 }
-
-/*
-int main(void) {
-	// Print the current working directory before cd
-	char *before_cd = getcwd(NULL, 0);
-	printf("Before cd: %s\n", before_cd);
-
-	// Test cd with no arguments (change to HOME)
-	char *cd_args1[] = {"cd", NULL};
-	ma_cd(cd_args1);
-
-	// Print the current working directory after the first cd
-	char *after_cd1 = getcwd(NULL, 0);
-	printf("After cd (HOME): %s\n", after_cd1);
-
-	// Test cd with an argument (change to /etc)
-	char *cd_args2[] = {"cd", "/etc", NULL};
-	ma_cd(cd_args2);
-
-	// Print the current working directory after the second cd
-	char *after_cd2 = getcwd(NULL, 0);
-	printf("After cd (/etc): %s\n", after_cd2);
-
-
-	// Free allocated memory
-	free(before_cd);
-	free(after_cd1);
-	free(after_cd2);
-
-	return 0;
-}
-
- */
-/*
-int main() {
-	char *cd_args_empty[] = {"cd", "-", NULL};
-	char *cd_args_home[] = {"cd", NULL};
-	char *cd_args_whitespace[] = {"cd", "   ", NULL};
-	char *env_args[] = {"env", NULL};
-	char *exit_args[] = {"exit", "42", NULL};
-
-	// Test ma_cd with empty string
-	printf("Testing ma_cd with empty string:\n");
-	if (ma_cd(cd_args_empty) == 0) {
-		char cwd[1024];
-		if (getcwd(cwd, sizeof(cwd)) == NULL) {
-			perror("getcwd");
-			return 1;
-		}
-		printf("ma_cd succeeded! Current directory: %s\n", cwd);
-	} else {
-		fprintf(stderr, "ma_cd failed!\n");
-	}
-
-	// Test ma_cd without arguments (should default to home directory)
-	printf("\nTesting ma_cd without arguments (default to home directory):\n");
-	if (ma_cd(cd_args_home) == 0) {
-		char cwd[1024];
-		if (getcwd(cwd, sizeof(cwd)) == NULL) {
-			perror("getcwd");
-			return 1;
-		}
-		printf("ma_cd succeeded! Current directory: %s\n", cwd);
-	} else {
-		fprintf(stderr, "ma_cd failed!\n");
-	}
-
-	// Test ma_cd with whitespace string (should default to home directory)
-	printf("\nTesting ma_cd with whitespace string (default to home directory):\n");
-	if (ma_cd(cd_args_whitespace) == 0) {
-		char cwd[1024];
-		if (getcwd(cwd, sizeof(cwd)) == NULL) {
-			perror("getcwd");
-			return 1;
-		}
-		printf("ma_cd succeeded! Current directory: %s\n", cwd);
-	} else {
-		fprintf(stderr, "ma_cd failed!\n");
-	}
-
-	// Test ma_env
-	// printf("\nTesting ma_env:\n");
-	// if (ma_env(env_args) == 0) {
-		 printf("ma_env succeeded!\n");
-	// } else {
-		 fprintf(stderr, "ma_env failed!\n");
-	// }
-
-	// Test ma_exit
-	printf("\nTesting ma_exit:\n");
-	ma_exit(exit_args);  // Note: This will exit the program
-
-	return 0;
-}
- */

@@ -6,8 +6,10 @@
  *
  * Return: 0 on success, -1 on failure
  */
-int bin_setenv(char **args) {
-	if (args[1] == NULL || args[2] == NULL) {
+int bin_setenv(char **args)
+{
+	if (args[1] == NULL || args[2] == NULL)
+	{
 		perror(
 			"setenv: Too few arguments. Usage: setenv VARIABLE VALUE [override]");
 		return -1;
@@ -17,7 +19,8 @@ int bin_setenv(char **args) {
 	char *value = args[2];
 	int overwrite = (args[3] != NULL) ? _atoi(args[3]) : 1;
 
-	if (_setenv(name, value, overwrite) != 0) {
+	if (_setenv(name, value, overwrite) != 0)
+	{
 		perror("setenv: Unable to set environment variable");
 		return -1;
 	}
@@ -32,14 +35,17 @@ int bin_setenv(char **args) {
  * Return: 0 on success, 1 on failure
  */
 
-int bin_unsetenv(char **args) {
-	if (args[1] == NULL) {
+int bin_unsetenv(char **args)
+{
+	if (args[1] == NULL)
+	{
 		return 1;
 	}
 
 	char *name = args[1];
 
-	if (_unsetenv(name) != 0) {
+	if (_unsetenv(name) != 0)
+	{
 		return 1;
 	}
 
@@ -53,10 +59,12 @@ int bin_unsetenv(char **args) {
  * Return: Function pointer to the built-in command, or NULL if not a built-in
  */
 
-func check_built_ins(char *ch) {
+func check_built_ins(char *ch)
+{
 	int i;
 
-	built_ins spc[] = {
+	built_ins spc[] =
+	{
 		{"cd", &ma_cd},
 		{"env", &ma_env},
 		{"exit", &ma_exit},
@@ -64,8 +72,10 @@ func check_built_ins(char *ch) {
 		{"unsetenv", &bin_unsetenv},
 		{NULL, NULL}};
 
-	for (i = 0; spc[i].name != NULL; i++) {
-		if (_strcmp(spc[i].name, ch) == 0) {
+	for (i = 0; spc[i].name != NULL; i++)
+	{
+		if (_strcmp(spc[i].name, ch) == 0)
+		{
 			return (spc[i].f);
 		}
 	}
@@ -81,7 +91,8 @@ func check_built_ins(char *ch) {
  * Return: Result of the built-in command execution
  */
 
-int exebi(func f, char **arr) {
+int exebi(func f, char **arr)
+{
 	int re;
 
 	re = f(arr);
@@ -96,9 +107,10 @@ int exebi(func f, char **arr) {
  * Return: 0 on success, 127 if command not found
  */
 
-int exe(char *com, char **arr) {
-	int id;
-	func f;
+int exe(char *com, char **arr)
+{
+	int id = 0;
+	func f = NULL;
 
 	f = check_built_ins(arr[0]);
 	if (f != NULL)
@@ -111,7 +123,8 @@ int exe(char *com, char **arr) {
 	return 0;
 }
 
-/* int main(void) {
+/* int main(void)
+{
 		char *setenv_args[] = {"setenv", "TEST_VAR", "test_value", NULL};
 		char *unsetenv_args[] = {"unsetenv", "TEST_VAR", NULL};
 		char *unsetenv_invalid_args[] = {"unsetenv", NULL};

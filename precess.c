@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * process - create a new process
+ * proc - create a new process
  * @args:   arguments
  *
  * Return: 1 (success). Otherwise 0.
@@ -20,7 +20,7 @@ int proc(char **args)
 		}
 		exit(EXIT_FAILURE);
 	}
-	else if (pid < 0)
+		else if (pid < 0)
 	{
 			printerr("fork", 1);
 	}

@@ -1735,3 +1735,23 @@ echo $?
 clear
 exit
 /bin/ls
+clear
+ls
+pwd
+cad
+clear
+env
+setenv name nan
+env
+unsetenv name
+env
+env
+env
+evn
+env
+exit
+exit
+exit
+exit
+exit
+exit
