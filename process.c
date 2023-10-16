@@ -74,7 +74,9 @@ void populate_substrings(char *str, char sep, char **result, int count)
 	int len = _strlen(str);
 	int i = 0;
 	int substring_index = 0;
-	int start;
+	int start = 0;
+	size_t substr_len = i - start;
+
 
 	(void)count;
 	i = 0;
@@ -87,10 +89,11 @@ void populate_substrings(char *str, char sep, char **result, int count)
 		start = i;
 		while (i < len && str[i] != sep)
 			i++;
-		result[substring_index] = (char *)malloc(i - start + 1);
+		result[substring_index] = (char *)malloc(i - substr_len);
 		if (result[substring_index] == NULL)
 		{
 			printerr("malloc", 1);
+			free_strarr(result);
 			exit(EXIT_FAILURE);
 		}
 		_strncpy(result[substring_index], str + start, i - start);
@@ -119,6 +122,7 @@ char **strtoarr(char *str, char sep)
 	if (result == NULL)
 	{
 		printerr("malloc", 1);
+		free_strarr(result);
 		exit(EXIT_FAILURE);
 	}
 
