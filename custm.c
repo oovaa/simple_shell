@@ -43,14 +43,14 @@ int ma_cd(char **args) {
         new_dir = _getenv("HOME");
 
         if (new_dir == NULL) {
-            eputs("cd: HOME not set\n");
+            printerr("cd", 1);
             return 1;
         }
     }
 
 	if (chdir(new_dir) != 0)
 	{
-        perror("cd");
+        printerr("cd", 1);
         return 1;
 	}
 
@@ -61,7 +61,7 @@ int ma_env(char **args) {
 	int i = 0;
 	while (environ[i]) {
 		if (_puts(environ[i]) == -1 || _putchar('\n') == -1) {
-			perror("puts/putchar");
+            printerr("ma_env", 1);
 			return -1;
 		}
 		i++;
@@ -89,6 +89,7 @@ void _int_to_str(int num, char *str) {
 	str[i] = '\0';
 	rev_string(str);
 }
+
 /* 
 int main(void) {
 	// Print the current working directory before cd

@@ -1,18 +1,15 @@
 #include "shell.h"
 
-
-
 /**
  * read_textfile - Reads a text file and prints it to POSIX stdout.
  * @filename: A pointer to the name of the file.
  * @letters: The number of letters the
- *           function should read and print.
+ *					 function should read and print.
  *
  * Return: If the function fails or filename is NULL - 0.
  * O/w - the actual number of bytes the function can read and print.
  */
-ssize_t read_textfile(const char *filename, size_t letters)
-{
+ssize_t read_textfile(const char *filename, size_t letters) {
 	ssize_t r, w, o;
 	char *buf;
 
@@ -28,8 +25,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	r = read(o, buf, letters);
 	w = write(STDOUT_FILENO, buf, r);
 
-	if (o == -1 || r == -1 || w == -1 || w != r)
-	{
+	if (o == -1 || r == -1 || w == -1 || w != r) {
 		free(buf);
 		return (0);
 	}
@@ -38,9 +34,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	close(o);
 
 	return (w);
-
 }
-
 
 /**
  * create_file -creates an array of chars, and initializes
@@ -51,32 +45,24 @@ ssize_t read_textfile(const char *filename, size_t letters)
  * Return: 1 on success, -1 on failure
  */
 
-int create_file(const char *filename, char *text_content)
-{
-int o, w, len = 0;
+int create_file(const char *filename, char *text_content) {
+	int o, w, len = 0;
 
+	if (filename == NULL)
+		return (-1);
 
-if (filename == NULL)
-	return (-1);
+    len = (text_content != NULL) ? _strlen(text_content) : 0;
 
-if (text_content != NULL)
-{
-	for (len = 0; text_content[len];)
-		len++;
-}
-
-o = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-w = write(o, text_content, len);
+	o = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
+	w = write(o, text_content, len);
 
 	if (o == -1 || w == -1)
 		return (-1);
 
-close(o);
+	close(o);
 
-return (1);
-
+	return (1);
 }
-
 
 /**
  * append_text_to_file - appends a text at the end of a file.
@@ -86,15 +72,14 @@ return (1);
  * Return: 1 on success and -1 on failure
  */
 
-int append_text_to_file(const char *filename, char *text_content)
-{
+int append_text_to_file(const char *filename, char *text_content) {
 	int fd;
 	ssize_t len;
 
 	if (filename == NULL)
 		return (-1);
 
-    fd = open(filename, O_WRONLY | O_APPEND | O_CREAT, 0644);
+	fd = open(filename, O_WRONLY | O_APPEND | O_CREAT, 0644);
 	if (fd == -1)
 		return (-1);
 
@@ -107,5 +92,4 @@ int append_text_to_file(const char *filename, char *text_content)
 		return (-1);
 
 	return (1);
-
 }

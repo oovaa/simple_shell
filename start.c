@@ -38,6 +38,11 @@ int main(int argc, char **argv) {
 		path_command = look_in_path(tokcom[0]);
 
 		re = exe(path_command, tokcom);
+
+		if (re != 0)
+		{
+            printerr(tokcom[0], 1);  // Assuming index 1 for simplicity
+        }
 	}
 	free(command);
 	free(path_command);

@@ -1,16 +1,14 @@
 #include "shell.h"
 
 /**
- * strtoarr - from str to array
- * @str: the targeted strinf
- * @del: what separate every array element in str
- * Return: the array of strings or null;
-*/
-
-char **strtoarr(char *str, char sep) {
+ * count_substrings - Counts the number of substrings in a string.
+ * @str: The target string
+ * @sep: The delimiter that separates array elements in the string
+ * @count: A pointer to the count variable to be updated
+ */
+void count_substrings(char *str, char sep, int *count)
+{
     int len = _strlen(str);
-    int c = 0;
-    int *count = &c;
     int i = 0;
 
     // Count the number of substrings
@@ -31,54 +29,74 @@ char **strtoarr(char *str, char sep) {
         // Count the start of a new segment
         (*count)++;
     }
+}
 
-    // Allocate an array to contain the substrings
-    char **result = (char **)malloc(sizeof(char *) * (*count + 1));
-    if (result == NULL) {
-        perror("malloc failed");
-        exit(EXIT_FAILURE);
-    }
+/**
+ * populate_substrings - Populates an array with substrings from a string.
+ * @str: The target string
+ * @sep: The delimiter that separates array elements in the string
+ * @result: The array to be populated
+ * @count: The number of substrings
+ */
 
-    // Reset count for substring indexing
-    *count = 0;
+void populate_substrings(char *str, char sep, char **result, int count) {
+    int len = _strlen(str);
+    int i = 0;
+    int substring_index = 0;
+
     i = 0;
-
     // Populate the array with substrings
     while (i < len) {
         // Skip leading separators
         while (i < len && str[i] == sep)
             i++;
-
-        if (i == len) {
-            // If we reached the end of the string, break
+        if (i == len)
             break;
-        }
-
         // Find the end of the current segment
         int start = i;
         while (i < len && str[i] != sep)
             i++;
-
         // Allocate memory for the substring
-        result[*count] = (char *)malloc(i - start + 1);
-        if (result[*count] == NULL) {
-            perror("malloc failed");
+        result[substring_index] = (char *)malloc(i - start + 1);
+        if (result[substring_index] == NULL) {
+            printerr("malloc", 1);
             exit(EXIT_FAILURE);
         }
-
         // Copy the substring into the array
-        _strncpy(result[*count], str + start, i - start);
+        _strncpy(result[substring_index], str + start, i - start);
 
         // Move to the next substring
-        (*count)++;
+        substring_index++;
+    }
+    // Set the last pointer to NULL
+    result[substring_index] = NULL;
+}
+
+/**
+ * strtoarr - Converts a string to an array of strings using a specified delimiter.
+ * @str: The target string
+ * @sep: The delimiter that separates array elements in the string
+ * Return: The array of strings or NULL if malloc fails
+ */
+
+char **strtoarr(char *str, char sep) {
+    int count = 0;
+
+    // Count the number of substrings
+    count_substrings(str, sep, &count);
+
+    // Allocate an array to contain the substrings
+    char **result = (char **)malloc(sizeof(char *) * (count + 1));
+    if (result == NULL) {
+        perror("malloc failed");
+        exit(EXIT_FAILURE);
     }
 
-    // Set the last pointer to NULL
-    result[*count] = NULL;
+    // Populate the array with substrings
+    populate_substrings(str, sep, result, count);
 
     return result;
 }
-
 
 /**
  * look_in_path - returns the path
@@ -122,6 +140,12 @@ char *look_in_path(char *str)
 	return (NULL);
 }
 
+/**
+ * clean_end - Removes trailing spaces from a string.
+ * @str: The input string
+ * Return: Pointer to the cleaned string
+ */
+
 char *clean_end(char *str)
 {
     int i = _strlen(str) - 1;
@@ -139,6 +163,12 @@ char *clean_end(char *str)
 
     return str;
 }
+
+/**
+ * handle_hash - Removes comments from a string by setting null terminator at the '#' character.
+ * @str: The input string
+ * Return: Pointer to the modified string
+ */
 
 char *handle_hash(char *str) {
     int i = 0;
@@ -159,6 +189,11 @@ char *handle_hash(char *str) {
     return str;
 }
 
+/**
+ * clean - Cleans a string by removing leading and trailing spaces and comments.
+ * @str: The input string
+ * Return: Pointer to the cleaned string
+ */
 
 char *clean(char *str)
 {
@@ -175,49 +210,3 @@ char *clean(char *str)
 
     return cleaned_str;
 }
-
-
-/* 
-void pspace(char *str)
-{
-    int i = 0;
-
-    while (str[i])
-    {
-        if (str[i] == ' ')
-            putchar('>');
-        else
-            putchar(str[i]);
-        
-        i++;
-    }
- putchar('\n');   
-}
-
-int main(void)
-{
-    char str1[] = "   Hello   ";
-    char str2[] = "   Spaces     ";
-    char str3[] = "NoSpaces";
-    char str4[] = "   ";
-    char str5[] = "";
-
-    printf("Cleaned:  %s>\n", clean_end(str1));
-    pspace(str1);
-
-    printf("Cleaned:  %s>\n", clean_end(str2));
-    pspace(str2);
-
-    printf("Cleaned:  %s>\n", clean_end(str3));
-    pspace(str3);
-
-    printf("Cleaned:  %s>\n", clean_end(str4));
-    pspace(str4);
-
-    printf("Cleaned:  %s>\n", clean_end(str5));
-    pspace(str5);
-
-
-    return 0;
-}
- */

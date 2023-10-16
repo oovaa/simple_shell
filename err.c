@@ -1,23 +1,60 @@
 #include "shell.h"
 #include <stdarg.h>
 
+/**
+ * eputchar - writes a character to the standard error
+ * @c: The character to be written
+ *
+ * Return: On success, the number of characters written (1).
+ * On error, -1 is returned.
+ */
 
-int eputchar(char c) { return (write(2, &c, 1)); }
+int eputchar(char c)
+	{
+		return write(2, &c, 1);
+	}
 
-int eputs(char *str) { return write(STDERR_FILENO, str, _strlen(str)); }
+/**
+ * eputs - writes a string to the standard error
+ * @str: The string to be written
+ *
+ * Return: On success, the number of characters written.
+ * On error, -1 is returned.
+ */
 
-void srn_printerr(char *name, char *vampcmd, int indexno) {
-    char *index = intostr(indexno);
+int eputs(char *str)
+	{
+		return write(STDERR_FILENO, str, _strlen(str));
+	}
 
-    eputs(name);
-    eputs(": ");
-    eputs(index);
-    eputs(": ");
-    eputs(vampcmd);
-    eputs(": not found\n");
+/**
+ * printerr - prints an error message to the standard error
+ * @command: The name of the command causing the error
+ * @indexno: The index number associated with the error
+ *
+ * This function prints an error message to the standard error in the format:
+ * "<shell_name>: <index>: <command>: not found\n"
+ * where <shell_name> is the name of the shell (retrieved from the environment),
+ * <index> is the provided index number, and <command> is the name of the
+ * command causing the error.
+ *
+ * Return: void
+ */
 
-    free(index);
-}
+void printerr(char *command, int indexno)
+	{
+    	char *index = intostr(indexno);
+    	char *name = _getenv("_");
+
+    	eputs(name);
+    	eputs(": ");
+    	eputs(index);
+    	eputs(": ");
+    	eputs(command);
+    	eputs(": not found\n");
+
+    	free(index);
+	}
 
 /*
  * srn_intostr - function to change integer to string

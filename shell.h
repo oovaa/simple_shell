@@ -23,6 +23,7 @@ int proc(char **args);
 /* err.c */
 int eputs(char *str);
 int eputchar(char c);
+void printerr(char *command, int indexno);
 char *intostr(int wai);
 
 

@@ -80,9 +80,6 @@ char *_strdup(char *str) {
 		return NULL;
 	}
 
-	if (newstr == NULL)
-		return (NULL);
-
 	for (i = 0; str[i]; i++)
 		newstr[i] = str[i];
 

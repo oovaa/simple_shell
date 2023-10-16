@@ -1,6 +1,11 @@
 #include "shell.h"
 
-// Updated setenv function with override option
+/**
+ * bin_setenv - Implements the setenv built-in command
+ * @args: Array of command arguments
+ *
+ * Return: 0 on success, -1 on failure
+ */
 int bin_setenv(char **args) {
 	if (args[1] == NULL || args[2] == NULL) {
 		perror(
@@ -20,21 +25,33 @@ int bin_setenv(char **args) {
 	return 0;
 }
 
+/**
+ * bin_unsetenv - Implements the unsetenv built-in command
+ * @args: Array of command arguments
+ *
+ * Return: 0 on success, 1 on failure
+ */
+
 int bin_unsetenv(char **args) {
 	if (args[1] == NULL) {
-		perror("unsetenv: Missing argument. Usage: unsetenv VARIABLE");
 		return 1;
 	}
 
 	char *name = args[1];
 
 	if (_unsetenv(name) != 0) {
-		perror("unsetenv: Unable to unset environment variable");
 		return 1;
 	}
 
 	return 0;
 }
+
+/**
+ * check_built_ins - Checks if a command is a built-in and returns its function
+ * @ch: Command to check
+ *
+ * Return: Function pointer to the built-in command, or NULL if not a built-in
+ */
 
 func check_built_ins(char *ch) {
 	int i;
@@ -56,12 +73,28 @@ func check_built_ins(char *ch) {
 	return (NULL);
 }
 
+/**
+ * exebi - Executes a built-in command
+ * @f: Function pointer to the built-in command
+ * @arr: Array of command arguments
+ *
+ * Return: Result of the built-in command execution
+ */
+
 int exebi(func f, char **arr) {
 	int re;
 
 	re = f(arr);
 	return (re);
 }
+
+/**
+ * exe - Executes a command
+ * @com: Command to execute
+ * @arr: Array of command arguments
+ *
+ * Return: 0 on success, 127 if command not found
+ */
 
 int exe(char *com, char **arr) {
 	int id;
@@ -71,11 +104,9 @@ int exe(char *com, char **arr) {
 	if (f != NULL)
 		return exebi(f, arr);
 		
-	if (access(com, F_OK) != 0) {
-		fprintf(stderr, "%s: not found\n", arr[0]);
-		return 127; // Standard shell error code for command not found
-	}
-
+	if (access(com, F_OK) != 0)
+		return 127; 
+		
 	proc(arr);
 	return 0;
 }

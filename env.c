@@ -12,7 +12,7 @@
 int _setenv(char *name, char *value, int overwrite)
 {
 	if (name == NULL || value == NULL) {
-		fprintf(stderr, "Invalid arguments in _setenv\n");
+        printerr("_setenv", 1);
 		return -1;
 	}
 
@@ -47,7 +47,7 @@ int _setenv(char *name, char *value, int overwrite)
 
 	char **newenv = malloc((count + 2) * sizeof(char *));
 	if (newenv == NULL) {
-		perror("malloc");
+		printerr("malloc", 1);
 		free(fullvar); // Freeing fullvar since it's not needed
 		return -1; // or handle the error in an appropriate way
 	}
@@ -60,7 +60,6 @@ int _setenv(char *name, char *value, int overwrite)
 	newenv[i + 1] = NULL; // Ensure the new environment array is null-terminated
 
 	environ = newenv;
-
 	return 0;
 }
 
@@ -82,17 +81,16 @@ int _unsetenv(char *name)
 			free(environ[i]);
 			environ[i] = environ[last];
 			environ[last] = NULL;
-			return 0; // Always return success
+			return 0; // success
 		}
 	}
 
-	fprintf(stderr, "unsetenv: %s: not found\n", name);
 	return -1; // Return an error if the variable is not found
 }
 
 /**
  * gpath - returns the path;
- * Return: path as string
+ * Return: path var as string
 */
 
 char *gpath()
@@ -123,14 +121,14 @@ char *_getenv(char *name)
 	int len;
 
 	if (name == NULL || *name == '\0') {
-		fprintf(stderr, "Invalid argument in _getenv\n");
+        printerr("_getenv", 1);
 		return NULL;
 	}
 
 	len = _strlen(name);
 
 	if (environ == NULL) {
-		fprintf(stderr, "environ is NULL\n");
+        printerr("_getenv", 1);
 		return NULL;
 	}
 
@@ -139,7 +137,7 @@ char *_getenv(char *name)
 			return (environ[i] + len + 1);
 		}
 	}
-
+    printerr("_getenv", 1);
 	return NULL;
 }
 

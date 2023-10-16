@@ -1610,3 +1610,94 @@ clear
 ls
 pwd
 cd
+clear
+ls -a
+clear
+acc
+pwd
+clear
+echo ahhhy
+kmkmrf
+clear
+pwd
+ls
+clear
+exit
+clear
+exit
+/bin/ls
+exiy
+exit
+pwd
+exit
+echo Hello, World!
+exit
+echo
+exit
+exit
+echo Hello, World!
+exit
+exit
+exit
+exit
+exit
+clear
+ls -a
+dcs
+clear
+pwd
+exit
+clear
+cd cdlm
+exit
+cd asda
+exit
+dam
+clear
+ls
+pwd
+cd
+clear
+ls
+pwd
+cac
+clea
+clear
+setenv name omar
+setenv name omar
+exit
+acad
+exit
+asdas
+clear
+exit
+clear
+la
+ls
+echo $$
+clear
+pwd
+cd
+clear
+unsetenv dafd
+exit
+unsetenv dasd
+exit
+unsetenv dasd
+exit
+clear
+ls -a
+clear
+pwd
+setenv name omar
+unsetenv name
+clear
+pwd
+cd ..
+ls
+pwd
+clear
+cd
+exit
+exit
+ls
