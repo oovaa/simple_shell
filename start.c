@@ -58,7 +58,6 @@ int main(void)
 	}
 	if (command != NULL)
 		free(command);
-		free(path_command);
 	free_strarr(tokcom);
 
 	return (re);

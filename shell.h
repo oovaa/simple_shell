@@ -19,7 +19,7 @@ typedef int (*func)(char **args);
 /* process */
 int proc(char **args);
 void count_substrings(char *str, char sep, int *count);
-void populate_substrings(char *str, char sep, char **result, int count);
+char **populate_substrings(char *str, char sep, int count);
 char **strtoarr(char *str, char sep);
 
 

@@ -18,7 +18,7 @@ char *look_in_path(char *str)
 
 	tok = strtoarr(path, ':');
 	    if (tok == NULL)
-        return NULL;
+        	return NULL;
 
 	for (i = 0; tok[i]; i++)
 	{
@@ -35,7 +35,7 @@ char *look_in_path(char *str)
 
 		if (access(com, F_OK) == 0)
 		{
-			free(tok);
+			free_strarr(tok);
 			return (com);
 		}
 		free(com);

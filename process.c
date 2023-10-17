@@ -66,38 +66,48 @@ void count_substrings(char *str, char sep, int *count)
  * @str: The target string
  * @sep: The delimiter that separates array elements in the string
  * @result: The array to be populated
-* @count: The number of substrings
+ * @count: The number of substrings
+ * Return: The populated array or NULL in case of an error
  */
-void populate_substrings(char *str, char sep, char **result, int count)
+
+char **populate_substrings(char *str, char sep, int count)
 {
-	int len = _strlen(str);
-	int i = 0;
-	int substring_index = 0;
-	int start;
+    int len = _strlen(str);
+    int i = 0;
+    int substring_index = 0;
+    int start;
 
-	(void)count;
-	i = 0;
-	while (i < len)
-	{
-		while (i < len && str[i] == sep)
-			i++;
-		if (i == len)
-			break;
-		start = i;
-		while (i < len && str[i] != sep)
-			i++;
-		result[substring_index] = (char *)malloc(i - start + 1);
-		if (result[substring_index] == NULL)
-		{
-			printerr("malloc", 1);
-			exit(EXIT_FAILURE);
-		}
-		_strncpy(result[substring_index], str + start, i - start);
-        result[substring_index][i - start] = '\0';  // Null-terminate the string
+    char **result = (char **)malloc(sizeof(char *) * (count + 1));
+    if (result == NULL)
+    {
+        printerr("malloc", 1);
+        return NULL;
+    }
 
-		substring_index++;
-	}
-	result[substring_index] = NULL;
+    i = 0;
+    while (i < len)
+    {
+        while (i < len && str[i] == sep)
+            i++;
+        if (i == len)
+            break;
+        start = i;
+        while (i < len && str[i] != sep)
+            i++;
+        result[substring_index] = (char *)malloc(i - start + 1);
+        if (result[substring_index] == NULL)
+        {
+            printerr("malloc", 1);
+            free_strarr(result);
+            return NULL;
+        }
+        _strncpy(result[substring_index], str + start, i - start);
+        result[substring_index][i - start] = '\0'; // Null-terminate the string
+
+        substring_index++;
+    }
+    result[substring_index] = NULL;
+    return result;
 }
 
 /**
@@ -107,29 +117,24 @@ void populate_substrings(char *str, char sep, char **result, int count)
  * @sep: The delimiter that separates array elements in the string
  * Return: The array of strings or NULL if malloc fails
  */
-
 char **strtoarr(char *str, char sep)
 {
-	int count = 0;
-	char **result = NULL;
+    int count = 0;
+    char **result = NULL;
 
     if (str == NULL)
     {
         printerr("strtoarr", 1);
-		return NULL;
+        return NULL;
     }
 
-	count_substrings(str, sep, &count);
+    count_substrings(str, sep, &count);
 
-	 result = (char **)malloc(sizeof(char *) * (count + 1));
-	if (result == NULL)
-	{
-		printerr("malloc", 1);
-		free_strarr(result);
-		exit(EXIT_FAILURE);
-	}
+    result = populate_substrings(str, sep, count);
+    if (result == NULL)
+    {
+        return NULL;
+    }
 
-	populate_substrings(str, sep, result, count);
-
-	return (result);
+    return result;
 }
