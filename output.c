@@ -59,7 +59,7 @@ int getIdx(char *str, char c)
 
 void replace_variables(char *command, int status)
 {
-	char *ptr;
+	char *ptr = NULL;
 	char buffer[1024];
 	int pid = getpid();
 

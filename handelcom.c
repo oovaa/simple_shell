@@ -28,7 +28,6 @@ char *look_in_path(char *str)
 		_strcpy(com, tok[i]);
 		_strcat(com, "/");
 		_strcat(com, str);
-		com[_strlen(com)] = '\0';
 
 		if (access(com, F_OK) == 0)
 		{
@@ -36,6 +35,7 @@ char *look_in_path(char *str)
 			return (com);
 		}
 		free(com);
+		// free(tok[i]);
 	}
 	free(tok);
 	return (NULL);
@@ -49,6 +49,9 @@ char *look_in_path(char *str)
 
 char *clean_end(char *str)
 {
+	if (str == NULL)
+		return "\0";
+	
 	int i = _strlen(str) - 1;
 
 	while (i >= 0 && str[i] == ' ')

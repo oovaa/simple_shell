@@ -9,9 +9,7 @@
 
 int _strcspn(char *str, char regect)
 {
-	int i;
-
-	i = 0;
+	int i = 0;
 
 	while (str[i] != regect)
 		i++;
@@ -52,7 +50,7 @@ char *_strchr(char *s, char c)
 
 int _strncmp(char *s1, char *s2, int n)
 {
-	int i;
+	int i = 0;
 
 	for (i = 0; i < n; ++i)
 	{
@@ -72,8 +70,8 @@ int _strncmp(char *s1, char *s2, int n)
  */
 char *_strdup(char *str)
 {
-	int len, i;
-	char *newstr;
+	int len = 0, i = 0;
+	char *newstr =  NULL;
 
 	if (str == NULL)
 		return (NULL);

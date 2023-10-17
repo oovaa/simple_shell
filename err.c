@@ -1,5 +1,4 @@
 #include "shell.h"
-#include <stdarg.h>
 
 /**
  * eputchar - writes a character to the standard error
@@ -24,9 +23,22 @@ int eputchar(char c)
 int eputs(char *str)
 {
     if (str == NULL)
-        return write(STDERR_FILENO, "(null)", 6);
+    {
+        write(STDERR_FILENO, "(null)", 6);
+        return 6;  // Return the number of characters written
+    }
 
-    return write(STDERR_FILENO, str, _strlen(str));
+    int len = _strlen(str);
+
+    if (len > 0)
+    {
+        return write(STDERR_FILENO, str, len);
+    }
+    else
+    {
+        // If the string is empty, print a newline
+        return write(STDERR_FILENO, "\n", 1);
+    }
 }
 
 /**
@@ -44,7 +56,7 @@ int eputs(char *str)
  */
 
 void printerr(char *command, int indexno)
-	{
+{
     char *index = intostr(indexno);
     char *name = _getenv("_");
 
@@ -54,12 +66,14 @@ void printerr(char *command, int indexno)
         return;
     }
 
-    if (name != NULL) {
+    if (name != NULL)
+    {
         eputs(name);
         eputs(": ");
     }
 
-    if (index != NULL) {
+    if (index != NULL)
+    {
         eputs(index);
         eputs(": ");
     }
@@ -68,8 +82,7 @@ void printerr(char *command, int indexno)
     eputs(": not found\n");
 
     free(index);
-
-	}
+}
 
 /*
  * intostr - function to change integer to string

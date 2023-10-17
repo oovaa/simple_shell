@@ -8,8 +8,8 @@
  */
 int proc(char **args)
 {
-	pid_t pid;
-	int status;
+	pid_t pid = 0;
+	int status = 0;
 
 	pid = fork();
 	if (pid == 0)
@@ -66,7 +66,7 @@ void count_substrings(char *str, char sep, int *count)
  * @str: The target string
  * @sep: The delimiter that separates array elements in the string
  * @result: The array to be populated
- * @count: The number of substrings
+* @count: The number of substrings
  */
 
 void populate_substrings(char *str, char sep, char **result, int count)
@@ -77,7 +77,7 @@ void populate_substrings(char *str, char sep, char **result, int count)
 	int start = 0;
 
 
-	(void)count;
+(void)count;
 	while (i < len)
 	{
 		while (i < len && str[i] == sep)

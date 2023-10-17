@@ -10,8 +10,8 @@
 
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
+unsigned int i = 0;
 
-unsigned int i;
 for (i = 0; i < n; i++)
 {
 dest[i] = src[i];
@@ -30,7 +30,8 @@ return (dest);
 
 char *_memset(char *s, char b, unsigned int n)
 {
-unsigned int i;
+unsigned int i = 0;
+
 for (i = 0; i < n; i++)
 {
 s[i] = b;
@@ -48,8 +49,8 @@ return (s);
  */
 void rev_string(char *s)
 {
-	int a = 0, b, c;
-	char d;
+	int a = 0, b = 0, c = 0;
+	char d  = ' ';
 
 	while (s[a] != '\0')
 	{
@@ -74,11 +75,14 @@ void rev_string(char *s)
 
 void free_strarr(char **arr)
 {
-	int i;
+    if (arr == NULL)
+        return;
 
-	for (i = 0; arr[i] != NULL; i++)
-	{
-		free(arr[i]);
-	}
-	free(arr);
+    for (int i = 0; arr[i] != NULL; i++)
+    {
+        free(arr[i]);
+        arr[i] = NULL; // Set to NULL after freeing
+    }
+
+    free(arr);
 }

@@ -11,8 +11,8 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t r, w, o;
-	char *buf;
+	ssize_t r = 0, w = 0, o = 0;
+	char *buf = NULL;
 
 	if (filename == NULL)
 		return (0);
@@ -49,7 +49,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 int create_file(const char *filename, char *text_content)
 {
-	int o, w, len = 0;
+	int o = 0, w = 0, len = 0;
 
 	if (filename == NULL)
 		return (-1);
@@ -77,8 +77,8 @@ int create_file(const char *filename, char *text_content)
 
 int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd;
-	ssize_t len;
+	int fd = 0;
+	ssize_t len = 0;
 
 	if (filename == NULL)
 		return (-1);
@@ -106,8 +106,8 @@ int append_text_to_file(const char *filename, char *text_content)
 
 char *_getenv(char *name)
 {
-	int i;
-	int len;
+	int i = 0;
+	int len = 0;
 
 	if (name == NULL || *name == '\0')
 	{

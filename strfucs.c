@@ -28,6 +28,7 @@ int _atoi(char *s)
 {
 int sign = 1;
 unsigned int num = 0;
+
 do {
 if (s[0] == '-')
 	sign *= -1;
@@ -86,6 +87,7 @@ char *_strncat(char *dest, char *src, int n)
 {
 int i = 0;
 int j = 0;
+
 while (dest[i++])
 ;
 i--;

@@ -41,7 +41,7 @@ int bin_setenv(char **args)
 
 int bin_unsetenv(char **args)
 {
-	char *name;
+	char *name = NULL;
 
 	if (args[1] == NULL)
 		return (1);
@@ -95,7 +95,7 @@ func check_built_ins(char *ch)
 
 int exebi(func f, char **arr)
 {
-	int re;
+	int re = 0;
 
 	re = f(arr);
 	return (re);

@@ -148,7 +148,7 @@ char *gpath()
 {
 	char *path = NULL;
 	int len = _strlen("PATH");
-	int i;
+	int i = 0;
 
 	for (i = 0; environ[i]; i++)
 	{
