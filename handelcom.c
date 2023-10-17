@@ -16,6 +16,9 @@ char *look_in_path(char *str)
 	return (str);
 
 	tok = strtoarr(path, ':');
+	    if (tok == NULL)
+        return NULL;
+
 	for (i = 0; tok[i]; i++)
 	{
 		com = malloc(_strlen(tok[i]) + _strlen(str) + 2);
@@ -25,6 +28,7 @@ char *look_in_path(char *str)
 			free_strarr(tok);
 			return (NULL);
 		}
+		com = NULL;
 		_strcpy(com, tok[i]);
 		_strcat(com, "/");
 		_strcat(com, str);
@@ -35,7 +39,6 @@ char *look_in_path(char *str)
 			return (com);
 		}
 		free(com);
-		// free(tok[i]);
 	}
 	free(tok);
 	return (NULL);

@@ -13,6 +13,16 @@ char *_strncpy(char *dest, char *src, int n)
 {
 int i = 0;
 
+    if (dest == NULL)
+    {
+        dest = (char *)malloc(n);
+        if (dest == NULL)
+        {
+            printerr("Memory allocation failed", EXIT_FAILURE);
+            exit(EXIT_FAILURE);
+        }
+    }
+
 for (i = 0; i < n && src[i] != '\0'; i++)
 dest[i] = src[i];
 
@@ -33,6 +43,12 @@ return (dest);
 
 int _strcmp(char *s1, char *s2)
 {
+
+	if (s1 == NULL || s2 == NULL)
+	{
+		return -1;
+	}
+
 	while (*s1 && *s2)
 	{
 		if (*s1 != *s2)

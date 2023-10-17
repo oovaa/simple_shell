@@ -76,7 +76,8 @@ void populate_substrings(char *str, char sep, char **result, int count)
 	int substring_index = 0;
 	int start = 0;
 
-
+	printf("Count: %d\n", count);
+	
 (void)count;
 	while (i < len)
 	{
@@ -94,10 +95,12 @@ void populate_substrings(char *str, char sep, char **result, int count)
 			free_strarr(result);
 			exit(EXIT_FAILURE);
 		}
+		result[substring_index] = NULL;
 		_strncpy(result[substring_index], str + start, i - start);
 
 		substring_index++;
 	}
+	
 	result[substring_index] = NULL;
 }
 

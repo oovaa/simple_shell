@@ -36,13 +36,19 @@ int main(void)
 			free(path_command);
 			return (re);
 		}
+
 		command = clean(command);
 		replace_variables(command, re);
 
 		if (command[0] == '\0')
 			continue;
+		printf("com %s\n", command);
 
 		tokcom = strtoarr(command, ' ');
+		for (int i = 0; tokcom[i]; i++)
+			printf("tok%s\n", tokcom[i]);
+		
+		if (tokcom[0])
 		path_command = look_in_path(tokcom[0]);
 		re = exe(path_command, tokcom);
 
@@ -53,7 +59,7 @@ int main(void)
 	}
 	if (command != NULL)
 		free(command);
-		free(path_command);
+	free(path_command);
 	free_strarr(tokcom);
 	return (re);
 }
