@@ -93,6 +93,7 @@ void populate_substrings(char *str, char sep, char **result, int count)
 			exit(EXIT_FAILURE);
 		}
 		_strncpy(result[substring_index], str + start, i - start);
+        result[substring_index][i - start] = '\0';  // Null-terminate the string
 
 		substring_index++;
 	}

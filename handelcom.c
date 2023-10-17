@@ -40,7 +40,7 @@ char *look_in_path(char *str)
 		}
 		free(com);
 	}
-	free(tok);
+	free_strarr(tok);
 	return (NULL);
 }
 
