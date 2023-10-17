@@ -1805,3 +1805,144 @@ adsaf
 ./
 clear
 gacp
+exit
+ls
+pwd
+cd
+exit
+exit
+lsp
+ls
+ls -a
+ls
+exit
+ls
+pwd
+exit
+ls
+lsp
+ls
+pwd
+clear
+exit
+ls
+pwd
+sa
+ls
+pw
+pwd
+clear
+cd
+exit
+exit
+exit
+clea
+clear
+ls
+pwd
+cd
+exit
+ls
+pwd
+ls -a
+ls -la /tmp
+ls -la
+ls -al
+cd
+exit
+ls
+ls -a
+c;ear
+la
+ls
+clear
+la -la
+ls -la
+clear
+ls -a /temp
+ls -a /tmp
+clear
+exit
+ls
+la
+ls -a
+exit
+ls
+pwd
+ls -l
+cd
+exit
+exit
+exkt
+exit
+exit
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+     /bin/ls
+/bin/ls
+   /bin/ls     
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                
+./hbtn_ls /var
+/bin/ls /var
+/bin/ls -l
+/bin/echo Holberton
+/bin/ls /var
+/bin/ls -l
+exit
+exit
+exir
+exit
+exit
+clear
+exot
+ls -a
+clear
+exit
+pw
+pwd
+cd
+exit
+exit
+exit
+exit
+exit
+ls
+pwd
+cd
+exit
+exit
+exit
+exit
+exi
+ls -a
+exit 43
+ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+ls
+ls
+ls
+ls
+/bin/ls
+ls
+ls
+ls
+ls
+ks
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls

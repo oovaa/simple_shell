@@ -21,11 +21,13 @@ int eputchar(char c)
  * Return: On success, the number of characters written.
  * On error, -1 is returned.
  */
-
 int eputs(char *str)
-	{
-		return (write(STDERR_FILENO, str, _strlen(str)));
-	}
+{
+    if (str == NULL)
+        return write(STDERR_FILENO, "(null)", 6);
+
+    return write(STDERR_FILENO, str, _strlen(str));
+}
 
 /**
  * printerr - prints an error message to the standard error
@@ -43,17 +45,30 @@ int eputs(char *str)
 
 void printerr(char *command, int indexno)
 	{
-		char *index = intostr(indexno);
-		char *name = _getenv("_");
+    char *index = intostr(indexno);
+    char *name = _getenv("_");
 
-		eputs(name);
-		eputs(": ");
-		eputs(index);
-		eputs(": ");
-		eputs(command);
-		eputs(": not found\n");
+    if (command == NULL || command[0] == '\0')
+    {
+        printerr("Invalid command", 1);
+        return;
+    }
 
-		free(index);
+    if (name != NULL) {
+        eputs(name);
+        eputs(": ");
+    }
+
+    if (index != NULL) {
+        eputs(index);
+        eputs(": ");
+    }
+
+    eputs(command);
+    eputs(": not found\n");
+
+    free(index);
+
 	}
 
 /*

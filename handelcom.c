@@ -22,7 +22,7 @@ char *look_in_path(char *str)
 		if (com == NULL)
 		{
 			printerr("malloc", 1);
-			free(tok);
+			free_strarr(tok);
 			return (NULL);
 		}
 		_strcpy(com, tok[i]);
@@ -76,19 +76,16 @@ char *handle_hash(char *str)
 {
 	int i = 0;
 
-	// Find the '#' character
 	while (str[i] && str[i] != '#')
 	{
 		i++;
 	}
 
-	// If no '#' character found, return the original string
 	if (str[i] == '\0')
 	{
 		return (str);
 	}
 
-	// Set null terminator at the '#' character
 	str[i] = '\0';
 
 	return (str);
@@ -105,10 +102,12 @@ char *clean(char *str)
 {
 	char *cleaned_str = NULL;
 
-	str[_strcspn(str, '\n')] = '\0';
-
 	if (str == NULL)
 		return (NULL);
+
+	append_text_to_file("history.txt", str);
+	
+	str[_strcspn(str, '\n')] = '\0';
 
 	cleaned_str = handle_hash(str);
 

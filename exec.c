@@ -64,7 +64,7 @@ int bin_unsetenv(char **args)
 
 func check_built_ins(char *ch)
 {
-	int i;
+	int i = 0;
 
 	built_ins spc[] = {
 		{"cd", &ma_cd},
@@ -115,6 +115,9 @@ int exe(char *com, char **arr)
 	f = check_built_ins(arr[0]);
 	if (f != NULL)
 		return (exebi(f, arr));
+
+	if (com == NULL)
+	    return -1;
 
 	if (access((com), F_OK) != 0)
 		return (127);
