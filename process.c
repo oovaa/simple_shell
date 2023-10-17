@@ -68,17 +68,15 @@ void count_substrings(char *str, char sep, int *count)
  * @result: The array to be populated
 * @count: The number of substrings
  */
-
 void populate_substrings(char *str, char sep, char **result, int count)
 {
 	int len = _strlen(str);
 	int i = 0;
 	int substring_index = 0;
-	int start = 0;
+	int start;
 
-	printf("Count: %d\n", count);
-	
-(void)count;
+	(void)count;
+	i = 0;
 	while (i < len)
 	{
 		while (i < len && str[i] == sep)
@@ -92,15 +90,12 @@ void populate_substrings(char *str, char sep, char **result, int count)
 		if (result[substring_index] == NULL)
 		{
 			printerr("malloc", 1);
-			free_strarr(result);
 			exit(EXIT_FAILURE);
 		}
-		result[substring_index] = NULL;
 		_strncpy(result[substring_index], str + start, i - start);
 
 		substring_index++;
 	}
-	
 	result[substring_index] = NULL;
 }
 

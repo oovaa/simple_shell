@@ -42,11 +42,8 @@ int main(void)
 
 		if (command[0] == '\0')
 			continue;
-		printf("com %s\n", command);
 
 		tokcom = strtoarr(command, ' ');
-		for (int i = 0; tokcom[i]; i++)
-			printf("tok%s\n", tokcom[i]);
 		
 		if (tokcom[0])
 		path_command = look_in_path(tokcom[0]);

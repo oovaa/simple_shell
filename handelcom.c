@@ -11,6 +11,7 @@ char *look_in_path(char *str)
 {
 	char *path = gpath(), **tok = NULL, *com = NULL;
 	int i = 0;
+	int j = 0;
 
 	if (access(str, F_OK) == 0)
 	return (str);
@@ -28,7 +29,6 @@ char *look_in_path(char *str)
 			free_strarr(tok);
 			return (NULL);
 		}
-		com = NULL;
 		_strcpy(com, tok[i]);
 		_strcat(com, "/");
 		_strcat(com, str);
