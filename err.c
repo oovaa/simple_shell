@@ -22,23 +22,24 @@ int eputchar(char c)
  */
 int eputs(char *str)
 {
-    if (str == NULL)
-    {
-        write(STDERR_FILENO, "(null)", 6);
-        return 6;  // Return the number of characters written
-    }
+	int len;
 
-    int len = _strlen(str);
+	if (str == NULL)
+	{
+		write(STDERR_FILENO, "(null)", 6);
+		return (6);
+	}
 
-    if (len > 0)
-    {
-        return write(STDERR_FILENO, str, len);
-    }
-    else
-    {
-        // If the string is empty, print a newline
-        return write(STDERR_FILENO, "\n", 1);
-    }
+	len = _strlen(str);
+
+	if (len > 0)
+	{
+		return (write(STDERR_FILENO, str, len));
+	}
+	else
+	{
+		return (write(STDERR_FILENO, "\n", 1));
+	}
 }
 
 /**
@@ -57,39 +58,52 @@ int eputs(char *str)
 
 void printerr(char *command, int indexno)
 {
-    char *index = intostr(indexno);
-    char *name = _getenv("_");
+	char *index = intostr(indexno);
+	char *name = _getenv("_");
 
-    if (command == NULL || command[0] == '\0')
-    {
-        printerr("Invalid command", 1);
-        return;
-    }
+	if (command == NULL || command[0] == '\0')
+	{
+		printerr("Invalid command", 1);
+		return;
+	}
 
-    if (name != NULL)
-    {
-        eputs(name);
-        eputs(": ");
-    }
+	if (name != NULL)
+	{
+		eputs(name);
+		eputs(": ");
+	}
 
-    if (index != NULL)
-    {
-        eputs(index);
-        eputs(": ");
-    }
+	if (index != NULL)
+	{
+		eputs(index);
+		eputs(": ");
+	}
 
-    eputs(command);
-    eputs(": not found\n");
+	eputs(command);
+	eputs(": not found\n");
 
-    free(index);
+	free(index);
 }
 
-/*
- * intostr - function to change integer to string
- * @wai: variable
- * Return: NULL
+/**
+ * intostr - Convert an integer to a string.
+ *
+ * @wai: The integer to be converted.
+ *
+ * Description:
+ * This function takes an integer and converts it to a corresponding
+ * string representation. The resulting string is dynamically allocated
+ * and should be freed by the caller when no longer needed.
+ *
+ * Example:
+ * int num = 42;
+ * char *str_num = intostr(num);
+ * // str_num now contains the string "42"
+ * free(str_num); // Remember to free the allocated memory.
+ *
+ * Return: A pointer to the string representation of the integer,
+ * or NULL if memory allocation fails.
  */
-
 char *intostr(int wai)
 {
 	char buffy[50];

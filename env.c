@@ -16,6 +16,7 @@ int _setenv_existing(char *name, char *value, char *fullvar, int overwrite)
 {
 	int i;
 
+	(void)value;
 	for (i = 0; environ[i]; i++)
 	{
 		if (_strncmp(name, environ[i], _strlen(name)) == 0 && overwrite == 1)
@@ -32,7 +33,7 @@ int _setenv_existing(char *name, char *value, char *fullvar, int overwrite)
 		}
 	}
 
-	return (-1); // Variable not found
+	return (-1);
 }
 
 
@@ -102,11 +103,18 @@ int _setenv(char *name, char *value, int overwrite)
 {
 	char *fullvar;
 
+	fullvar = _getenv(name);
 	if (_setenv_existing(name, value, fullvar, overwrite) == 0)
+	{
+		free(fullvar);
 		return (0);
+	}
 
 	if (_setenv_new(name, value) == (0))
+	{
+		free(fullvar);
 		return (0);
+	}
 
 	free(fullvar);
 	return (-1);
@@ -132,11 +140,11 @@ int _unsetenv(char *name)
 			free(environ[i]);
 			environ[i] = environ[last];
 			environ[last] = NULL;
-			return (0); // success
+			return (0);
 		}
 	}
 
-	return (-1); // Return an error if the variable is not found
+	return (-1);
 }
 
 /**

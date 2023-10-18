@@ -11,7 +11,7 @@ int _strlen(char *s)
 int i = 0;
 
 if (s == NULL)
-	return 0;
+	return (0);
 
 while (*(s + i) != '\0')
 {
@@ -114,7 +114,7 @@ char *_strcpy(char *dest, char *src)
 int i = 0;
 
 if (dest == NULL)
-	return _strdup(src);
+	return (_strdup(src));
 
 while (*(src + i) != '\0')
 {

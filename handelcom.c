@@ -11,14 +11,13 @@ char *look_in_path(char *str)
 {
 	char *path = gpath(), **tok = NULL, *com = NULL;
 	int i = 0;
-	int j = 0;
 
 	if (access(str, F_OK) == 0)
 	return (str);
 
 	tok = strtoarr(path, ':');
-	    if (tok == NULL)
-        	return NULL;
+	if (tok == NULL)
+		return (NULL);
 
 	for (i = 0; tok[i]; i++)
 	{
@@ -52,10 +51,12 @@ char *look_in_path(char *str)
 
 char *clean_end(char *str)
 {
+	int i;
+
 	if (str == NULL)
-		return "\0";
-	
-	int i = _strlen(str) - 1;
+		return ("\0");
+
+	i = _strlen(str) - 1;
 
 	while (i >= 0 && str[i] == ' ')
 		i--;
@@ -112,7 +113,7 @@ char *clean(char *str)
 		return (NULL);
 
 	append_text_to_file("history.txt", str);
-	
+
 	str[_strcspn(str, '\n')] = '\0';
 
 	cleaned_str = handle_hash(str);

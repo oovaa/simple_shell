@@ -29,9 +29,7 @@ int main(void)
 		if (getline(&command, &line, stdin) == -1)
 		{
 			if (isatty(STDIN_FILENO))
-			{
 				write(STDOUT_FILENO, "\n", 1);
-			}
 			free(command);
 			free(path_command);
 			return (re);
@@ -42,16 +40,15 @@ int main(void)
 
 		if (command[0] == '\0')
 			continue;
-
 		tokcom = strtoarr(command, ' ');
-		
+
 		if (tokcom[0])
 		path_command = look_in_path(tokcom[0]);
 		re = exe(path_command, tokcom);
 		free(path_command);
 
 		if (re != 0)
-			if (tokcom[0] != NULL)			
+			if (tokcom[0] != NULL)
 				printerr(tokcom[0], 1);
 
 	free_strarr(tokcom);
@@ -59,6 +56,5 @@ int main(void)
 	if (command != NULL)
 		free(command);
 	free_strarr(tokcom);
-
 	return (re);
 }

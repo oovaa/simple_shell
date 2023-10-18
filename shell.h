@@ -71,6 +71,7 @@ char *_memcpy(char *dest, char *src, unsigned int n);
 char *_memset(char *s, char b, unsigned int n);
 void rev_string(char *s);
 void free_strarr(char **arr);
+void free_strarr_partial(char **arr, int count);
 
 
 
@@ -103,17 +104,19 @@ char *clean(char *str);
 char *clean_end(char *str);
 char *handle_hash(char *str);
 
+/* ... (other function declarations) */
+
 /**
- * struct built_ins - Struct to represent a built-in command
- * @name: The name of the built-in command
- * @f: Pointer to the function implementing the built-in command
+ * struct built_ins - Represents a built-in command in the shell.
+ * @name: The name of the built-in command.
+ * @f: Pointer to the function implementing the built-in command.
  *
  * Description:
  * This structure is used to represent a built-in command in the shell.
  * It contains the name of the command and a function pointer to the
  * corresponding implementation.
  */
-typedef struct
+typedef struct built_ins
 {
 	char *name;
 	int (*f)(char **args);

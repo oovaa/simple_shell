@@ -117,7 +117,7 @@ int exe(char *com, char **arr)
 		return (exebi(f, arr));
 
 	if (com == NULL)
-	    return -1;
+		return (-1);
 
 	if (access((com), F_OK) != 0)
 		return (127);

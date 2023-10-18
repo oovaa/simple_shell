@@ -75,14 +75,48 @@ void rev_string(char *s)
 
 void free_strarr(char **arr)
 {
-    if (arr == NULL)
-        return;
+	int i;
+	
+	if (arr == NULL)
+		return;
 
-    for (int i = 0; arr[i] != NULL; i++)
-    {
-        free(arr[i]);
-        arr[i] = NULL; // Set to NULL after freeing
-    }
+	for (i = 0; arr[i] != NULL; i++)
+	{
+		free(arr[i]);
+	}
 
-    free(arr);
+	free(arr);
+}
+
+/**
+ * free_strarr_partial - Frees a portion of a string array.
+ *
+ * @arr: The string array to be partially freed.
+ * @count: The number of elements to free from the beginning of the array.
+ *
+ * Description:
+ * This function frees a specified number of elements from the beginning
+ * of a string array. It helps in deallocating memory used by a dynamically
+ * allocated string array while keeping the remaining elements intact.
+ *
+ * @arr: The string array to be partially freed.
+ * @count: The number of elements to free.
+ *
+ * Return: None.
+ */
+
+void free_strarr_partial(char **arr, int count)
+{
+	int i;
+
+	if (arr == NULL)
+		return;
+
+	for (i = 0; i < count; i++)
+	{
+		free(arr[i]);
+		arr[i] = NULL;
+	}
+
+	free(arr);
 }
