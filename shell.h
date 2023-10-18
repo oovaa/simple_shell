@@ -16,6 +16,10 @@
 extern char **environ;
 typedef int (*func)(char **args);
 
+/* readcmd */
+char *read_line(void);
+
+
 /* process */
 int proc(char **args);
 void count_substrings(char *str, char sep, int *count);

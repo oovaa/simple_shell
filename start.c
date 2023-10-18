@@ -19,19 +19,16 @@ int main(void)
 {
 	char *command = NULL;
 	char **tokcom = NULL;
-	size_t line = 0;
 	int re = 0;
 	char *path_command = NULL;
 
 	while (1)
 	{
-		_puts("$ ");
-		if (getline(&command, &line, stdin) == -1)
+		command = read_line();
+		if (command == NULL) /*CTRL+D*/
 		{
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "\n", 1);
-			free(command);
-			free(path_command);
 			return (re);
 		}
 
@@ -42,13 +39,15 @@ int main(void)
 			continue;
 		tokcom = strtoarr(command, ' ');
 
-		if (tokcom[0])
+		if (!tokcom)
+			continue;
 		path_command = look_in_path(tokcom[0]);
 		re = exe(path_command, tokcom);
 
 		if (re != 0)
 			if (tokcom[0] != NULL)
 				printerr(tokcom[0], 1);
+		free(path_command), free(command);
 	}
 	if (command != NULL)
 		free(command);
