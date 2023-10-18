@@ -38,7 +38,7 @@ int main(void)
 		command = clean(command);
 		replace_variables(command, re);
 
-		if (command[0] == '\0')
+		if (command[0] == '\0' || command == NULL)
 			continue;
 		tokcom = strtoarr(command, ' ');
 

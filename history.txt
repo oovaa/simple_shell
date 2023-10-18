@@ -2548,3 +2548,32 @@ ls
 clear
 exit
 /bin/ls
+ls
+exit
+ls
+pwdc
+cd
+exit
+exit
+lsls
+clear
+pwd
+cd
+clea
+clear
+ echo "qwerty" | /bin/sh
+exit
+qwerty
+/bin/ls
+
+exit
+/bin/ls
+/bin/ls/bin/ls
+/bin/ls
+/bin/ls/b        in/ls
+/bin/ls
+/bi                                                                      nbin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+

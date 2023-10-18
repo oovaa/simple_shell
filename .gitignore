@@ -5,3 +5,4 @@ simple-shell-test-suite
 !*.h
 !*.txt
 !hsh
+!Makefile

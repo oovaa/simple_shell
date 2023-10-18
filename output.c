@@ -63,6 +63,9 @@ void replace_variables(char *command, int status)
 	char buffer[1024];
 	int pid = getpid();
 
+	if (command == NULL)
+		return;
+
 	while ((ptr = _strstr(command, "$$")) != NULL)
 	{
 		*ptr = '\0';
