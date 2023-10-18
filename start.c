@@ -47,11 +47,9 @@ int main(void)
 		if (re != 0)
 			if (tokcom[0] != NULL)
 				printerr(tokcom[0], 1);
-		free(command);
+	free(command);
+	command = NULL;
 	free_strarr(tokcom);
 	}
-	if (command != NULL)
-		free(command);
-	free_strarr(tokcom);
 	return (re);
 }

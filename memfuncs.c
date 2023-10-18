@@ -77,7 +77,7 @@ void free_strarr(char **arr)
 {
 	int i;
 
-	if (arr == NULL)
+	if (arr == NULL || arr[0] == NULL)
 		return;
 
 	for (i = 0; arr[i] != NULL; i++)

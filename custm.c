@@ -8,12 +8,17 @@
 */
 int ma_exit(char **args)
 {
+	int i;
+
 	if (args[1] != NULL && args[1][0] != '\0')
 	{
-		exit(_atoi(args[1]));
+		i = _atoi(args[1]);
+		free_strarr(args);
+		exit(i);
 	}
 	else
 	{
+		free_strarr(args);
 		exit(0);
 	}
 }

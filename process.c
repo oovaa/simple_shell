@@ -101,8 +101,6 @@ char **populate_substrings(char *str, char sep, int count)
 			return (NULL);
 		}
 		_strncpy(result[substring_index], str + start, i - start);
-		result[substring_index][i - start] = '\0';
-
 		substring_index++;
 	}
 	result[substring_index] = NULL;
@@ -131,10 +129,9 @@ char **strtoarr(char *str, char sep)
 	count_substrings(str, sep, &count);
 
 	result = populate_substrings(str, sep, count);
+
 	if (result == NULL)
-	{
 		return (NULL);
-	}
 
 	return (result);
 }
