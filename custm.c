@@ -35,6 +35,7 @@ int ma_exit(char *com, char **args)
 	else
 	{
 		free_strarr(args);
+		free(com);
 		exit(0);
 	}
 }
