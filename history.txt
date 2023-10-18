@@ -2577,3 +2577,26 @@ exit
 /bin/ls
 /bin/ls
 
+clear
+ls -la /tmp
+pwd -P
+clear
+tldr pwd
+clear
+/bin/ls
+ls
+clear
+ls -l /tmp 
+clear
+ls -l /tmp 
+exit
+clear
+env
+clear
+exit 34
+c;ear
+clear
+ls
+cd
+echo $$ # ls -la
+exit
