@@ -3,16 +3,32 @@
 /**
  * ma_exit - Changes the current directory of the process
  * @args: arguments
+ * @com: ...
  *
  * Return: 0.
 */
-int ma_exit(char **args)
+int ma_exit(char *com, char **args)
 {
 	int i;
+	char invaexit[] = "exit: Illegal number: ";
+	char *path = _getenv("_");
 
+	free(com);
 	if (args[1] != NULL && args[1][0] != '\0')
 	{
 		i = _atoi(args[1]);
+		if (i < 0)
+		{
+			eputs(path);
+			eputs(": ");
+			eputs("1: ");
+			eputs(invaexit);
+			eputs(args[1]);
+			eputs("\n");
+			free_strarr(args);
+			exit(EXIT_FAILURE);
+		}
+
 		free_strarr(args);
 		exit(i);
 	}
@@ -56,13 +72,15 @@ int is_empty_or_whitespace(const char *str)
 /**
  * ma_cd - Changes the current directory of the process
  * @args: target
- *
+ * @com: unused
  * Return: 0 (Sucess). Otherwise 1.
 */
 
-int ma_cd(char **args)
+int ma_cd(char *com, char **args)
 {
 	char *new_dir = args[1];
+
+	(void)com;
 
 	if (new_dir == NULL || *new_dir == '\0')
 	{
@@ -87,6 +105,7 @@ int ma_cd(char **args)
 /**
  * ma_env - Implements the built-in command 'env'.
  * @args: Array of command arguments.
+ * @com: com
  *
  * Return: 0 on success, -1 on failure.
  *
@@ -101,11 +120,12 @@ int ma_cd(char **args)
  *  Returns 0 on success and -1 on failure.
  */
 
-int ma_env(char **args)
+int ma_env(char *com, char **args)
 {
 	int i = 0;
 
 (void)args;
+(void)com;
 
 	while (environ[i])
 	{

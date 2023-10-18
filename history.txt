@@ -2806,3 +2806,119 @@ clear
 /bin/ls -l
 exit
 /bin/ls
+clea
+clear
+         ls         -a
+ls -a
+exit
+ls
+pwd
+exit
+ls -a
+clear
+ls    -a
+    ls
+ls                  -a
+clear
+exit
+clear
+ls
+   ls
+clear
+ls            -l
+clear
+ls
+   ls
+           ls
+           ls -a
+exit
+exit
+lexit
+exit
+exit
+clear
+exit
+clear
+exit
+ls
+pwd
+exit
+/bin/ls
+clear
+env
+clear
+l
+ls
+pwd
+cd
+AUTHORS
+custm.c
+env.c
+err.c
+exe.c
+fileio.c
+fileio.md
+handelcom.c
+history.txt
+hsh
+Makefile
+memfuncs.c
+oflags.md
+output.c
+process.c
+readcmd.c
+README.md
+shell.h
+Shell-man
+start.c
+stat.md
+strfucs2.c
+strfucs3.c
+strfucs.c
+/bin/ls
+/bin/ls
+setenv name
+setenv name omar
+env
+clear
+setenv
+setenv name nan
+exit
+setenv name nan
+exit
+setenv name nana
+exit
+setenv name nan
+setenv name omar
+setenv name ana
+setenv name omar
+env
+unsetenv name
+env
+clear
+ls
+pwd
+cd /
+/bin/ls
+kdfdjv
+ls
+pwd
+clear
+cd
+env
+exit
+ls
+clear
+pwd
+exit 34
+lls
+pwd
+clear
+exit
+ls
+lcdv
+exit
+kndcdv
+fdjv
+exit
+exit -34
