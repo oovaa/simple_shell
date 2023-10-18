@@ -40,6 +40,7 @@ int main(void)
 
 		if (!tokcom)
 			continue;
+		free(command);
 		command = look_in_path(tokcom[0]);
 		re = exe(command, tokcom);
 

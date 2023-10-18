@@ -63,9 +63,9 @@ int _setenv_new(char *name, char *value)
 	if (fullvar == NULL)
 	{
 		perror("malloc");
-		free(fullvar);
 		return (-1);
 	}
+
 	_strcpy(fullvar, name);
 	_strcat(fullvar, "=");
 	_strcat(fullvar, value);
@@ -80,6 +80,7 @@ int _setenv_new(char *name, char *value)
 		free(fullvar);
 		return (-1);
 	}
+
 	for (i = 0; i < count; i++)
 		newenv[i] = environ[i];
 
