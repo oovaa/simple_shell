@@ -72,7 +72,7 @@ void replace_variables(char *command, int status)
 		_strcpy(buffer, command);
 		_int_to_str(pid, buffer + _strlen(buffer));
 		_strcat(buffer, ptr + 2);
-		_strcpy(command, buffer);
+		command = strdup(buffer);
 	}
 
 	while ((ptr = _strstr(command, "$?")) != NULL)
@@ -81,6 +81,6 @@ void replace_variables(char *command, int status)
 		_strcpy(buffer, command);
 		_int_to_str(status, buffer + _strlen(buffer));
 		_strcat(buffer, ptr + 2);
-		_strcpy(command, buffer);
+		command = strdup(buffer);
 	}
 }

@@ -20,7 +20,6 @@ int main(void)
 	char *command = NULL;
 	char **tokcom = NULL;
 	int re = 0;
-	char *path_command = NULL;
 
 	while (1)
 	{
@@ -35,14 +34,15 @@ int main(void)
 		command = clean(command);
 		replace_variables(command, re);
 
-		if (command[0] == '\0' || command == NULL)
+		if (command == NULL || command[0] == '\0')
 			continue;
 		tokcom = strtoarr(command, ' ');
 
 		if (!tokcom)
 			continue;
-		path_command = look_in_path(tokcom[0]);
-		re = exe(path_command, tokcom);
+		free(command);
+		command = look_in_path(tokcom[0]);
+		re = exe(command, tokcom);
 
 		if (re != 0)
 			if (tokcom[0] != NULL)
