@@ -2793,3 +2793,16 @@ ls
 pwd
 exit
 /bin/ls
+clear
+/bin/ls
+ls
+clear
+/bin/pwd
+ls
+/bin/pwd
+exit
+clear
+/bin/ls
+/bin/ls -l
+exit
+/bin/ls

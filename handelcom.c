@@ -13,7 +13,7 @@ char *look_in_path(char *str)
 	int i = 0;
 
 	if (access(str, F_OK) == 0)
-	return (str);
+		return (strdup(str));
 
 	tok = strtoarr(path, ':');
 	if (tok == NULL)
