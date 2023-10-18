@@ -2544,3 +2544,7 @@ ks
 pwd
 ls
 cd
+ls
+clear
+exit
+/bin/ls
