@@ -45,12 +45,10 @@ int main(void)
 		if (tokcom[0])
 		path_command = look_in_path(tokcom[0]);
 		re = exe(path_command, tokcom);
-		free(path_command);
 
 		if (re != 0)
 			if (tokcom[0] != NULL)
 				printerr(tokcom[0], 1);
-
 	free_strarr(tokcom);
 	}
 	if (command != NULL)

@@ -76,16 +76,18 @@ void rev_string(char *s)
 void free_strarr(char **arr)
 {
 	int i;
-	
+
 	if (arr == NULL)
 		return;
 
 	for (i = 0; arr[i] != NULL; i++)
 	{
 		free(arr[i]);
+		arr[i] = NULL;
 	}
 
 	free(arr);
+	arr = NULL;
 }
 
 /**
