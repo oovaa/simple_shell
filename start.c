@@ -25,7 +25,7 @@ int main(void)
 	while (1)
 	{
 		command = read_line();
-		if (command == NULL) /*CTRL+D*/
+		if (command == NULL)
 		{
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "\n", 1);
@@ -47,7 +47,8 @@ int main(void)
 		if (re != 0)
 			if (tokcom[0] != NULL)
 				printerr(tokcom[0], 1);
-		free(path_command), free(command);
+		free(command);
+	free_strarr(tokcom);
 	}
 	if (command != NULL)
 		free(command);
