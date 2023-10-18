@@ -130,5 +130,6 @@ char *_getenv(char *name)
 			return (environ[i] + len + 1);
 		}
 	}
+	printerr("_getenv", 1);
 	return (NULL);
 }

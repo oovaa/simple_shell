@@ -14,7 +14,7 @@
 
 
 extern char **environ;
-typedef int (*func)(char *com, char **args);
+typedef int (*func)(char **args);
 
 /* readcmd */
 char *read_line(void);
@@ -37,10 +37,11 @@ char *intostr(int wai);
 
 /* exec */
 int exe(char *com, char **arr);
-int exebi(func f, char *com, char **arr);
+int exebi(func f, char **arr);
 func check_built_ins(char *ch);
-int bin_unsetenv(char *com, char **args);
-int bin_setenv(char *com, char **args);
+int bin_unsetenv(char **args);
+int bin_setenv(char **args);
+
 
 
 
@@ -93,9 +94,9 @@ int _unsetenv(char *name);
 char *_getenv(char *name);
 
 /* custm */
-int ma_exit(char *com, char **args);
-int ma_cd(char *com, char **args);
-int ma_env(char *com, char **args);
+int ma_exit(char **args);
+int ma_cd(char **args);
+int ma_env(char **args);
 int is_empty_or_whitespace(const char *str);
 void _int_to_str(int num, char *str);
 
@@ -112,7 +113,6 @@ char *handle_hash(char *str);
 /**
  * struct built_ins - Represents a built-in command in the shell.
  * @name: The name of the built-in command.
- * @com: ..
  * @f: Pointer to the function implementing the built-in command.
  *
  * Description:
@@ -123,7 +123,7 @@ char *handle_hash(char *str);
 typedef struct built_ins
 {
 	char *name;
-	int (*f)(char *com, char **args);
+	int (*f)(char **args);
 
 } built_ins;
 
